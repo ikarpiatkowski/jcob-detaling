@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 
 export default function ProductSection() {
   return (
-    <section id="offer" className="pt-20">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <section id="offer" className="py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Nasze produkty

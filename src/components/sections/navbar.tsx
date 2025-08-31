@@ -108,7 +108,7 @@ export default function Navbar() {
           <Link
             href="#home"
             onClick={() => scrollToSection("#home")}
-            className="flex items-center text-white/80 hover:text-white"
+            className="flex items-center"
           >
             <div className="relative">
               {scrolled || isDarkMode ? (
@@ -131,7 +131,9 @@ export default function Navbar() {
                     height={48}
                     className="object-contain mr-2"
                   />
-                  <span className="font-bold text-lg">Jacob Detaling</span>
+                  <span className="font-bold text-white text-lg">
+                    Jacob Detaling
+                  </span>
                 </div>
               )}
             </div>

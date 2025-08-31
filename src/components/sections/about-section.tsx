@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 bg-stripes">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -24,7 +24,7 @@ export default function AboutSection() {
               lakierowane fronty, które są nie tylko piękne, ale również trwałe
               i funkcjonalne.
             </p>
-            <Button variant="outline" asChild>
+            <Button size="lg" asChild>
               <Link href="#contact">Dowiedz się o nas więcej</Link>
             </Button>
           </div>
