@@ -131,9 +131,7 @@ export default function Navbar() {
                     height={48}
                     className="object-contain mr-2"
                   />
-                  <span className="font-bold text-white text-lg">
-                    Jacob Detaling
-                  </span>
+                  <span className="font-bold text-lg">Jacob Detaling</span>
                 </div>
               )}
             </div>

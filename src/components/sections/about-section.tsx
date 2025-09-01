@@ -12,17 +12,18 @@ export default function AboutSection() {
               O naszej firmie
             </h2>
             <p className="text-neutral-600 dark:text-neutral-300 mb-4">
-              Dzięki ponad 15-letniemu doświadczeniu w produkcji lakierowanych
-              frontów, staliśmy się liderem w branży. branży.
+              Dzięki ponad 15-letniemu doświadczeniu w branży detailingu,
+              staliśmy się liderem w dziedzinie kompleksowej pielęgnacji
+              pojazdów.
             </p>
             <p className="text-neutral-600 dark:text-neutral-300 mb-4">
-              Nasze zaangażowanie w jakość, innowacyjność i zadowolenie klientów
-              przyniosło nam zaufanie klientów w całym kraju.
+              Nasze zaangażowanie w perfekcyjną jakość, innowacyjne techniki i
+              zadowolenie klientów przyniosło nam zaufanie właścicieli aut w
+              całym kraju.
             </p>
             <p className="text-neutral-600 dark:text-neutral-300 mb-6">
-              Łączymy tradycyjne rzemiosło z nowoczesną technologią, aby tworzyć
-              lakierowane fronty, które są nie tylko piękne, ale również trwałe
-              i funkcjonalne.
+              Łączymy tradycyjne rzemiosło z najnowszą technologią, aby Twoje
+              auto nie tylko wyglądało pięknie, ale było także trwale chronione.
             </p>
             <Button size="lg" asChild>
               <Link href="#contact">Dowiedz się o nas więcej</Link>

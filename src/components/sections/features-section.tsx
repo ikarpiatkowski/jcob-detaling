@@ -6,11 +6,12 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Dlaczego warto wybrać nasze lakierowane fronty{" "}
+            Dlaczego warto wybrać nasze uszługi
           </h2>
           <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-            Nasze lakierowane fronty premium łączą wyjątkową jakość z
-            oszałamiającą estetyką, aby odmienić Twoją przestrzeń.
+            Poznaj profesjonalny detailing samochodowy, który połączy doskonałą
+            jakość z oszałamiającą estetyką, aby całkowicie odmienić wygląd
+            Twojego auta.
           </p>
         </div>
 

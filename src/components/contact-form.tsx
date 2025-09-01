@@ -1,114 +1,16 @@
-"use client";
-
-import type React from "react";
-
-import { useState } from "react";
-import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    toast.message("Message sent!", {
-      description: "We'll get back to you as soon as possible.",
-    });
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-    setIsSubmitting(false);
-  };
-
   return (
-    <motion.form
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      onSubmit={handleSubmit}
-      className="space-y-4"
-    >
-      <div>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Twoje imię"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full"
-        />
-      </div>
-
-      <div>
-        <Input
-          type="email"
-          name="email"
-          placeholder="Adres email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full"
-        />
-      </div>
-
-      <div>
-        <Input
-          type="tel"
-          name="phone"
-          placeholder="Twój numer telefonu"
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full"
-        />
-      </div>
-
-      <div>
-        <Textarea
-          name="message"
-          placeholder="Twoja wiadomość"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          className="w-full min-h-[150px]"
-        />
-      </div>
-
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </Button>
-    </motion.form>
+    <div className="w-full h-[340px] rounded-xl overflow-hidden shadow">
+      <iframe
+        title="Jacob Detailing - Auto Detailing Toruń"
+        src="https://www.google.com/maps/embed?pb=!1m2!2m1!1sJacob%20Detailing%20-%20Auto%20Detailing%20Toru%C5%84%20PIEL%C4%98GNACJA%20AUT%20KOSMETYKA%20AUT%20KOREKTA%20LAKIERU!3m1!1s0x470335b2e2e2e2e2:0x7e7e7e7e7e7e7e7e"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
   );
 }
