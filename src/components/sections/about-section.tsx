@@ -29,9 +29,9 @@ export default function AboutSection() {
               <Link href="#contact">Dowiedz się o nas więcej</Link>
             </Button>
           </div>
-          <div className="relative h-[400px] rounded-lg overflow-hidden">
+          <div className="relative w-full aspect-square rounded-lg overflow-hidden">
             <Image
-              src="/main3.jpg"
+              src="/jd.png"
               alt="Our workshop"
               fill
               className="object-cover"

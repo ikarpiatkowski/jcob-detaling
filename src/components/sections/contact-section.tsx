@@ -1,4 +1,26 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+// Funkcja sprawdzająca czy firma jest otwarta
+function isOpenNow() {
+  const now = new Date();
+  const day = now.getDay(); // 0 = niedziela, 1 = poniedziałek, ...
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  // Poniedziałek (1) - Czwartek (4): 8:00 - 20:00
+  if (day >= 1 && day <= 4) {
+    if (hour > 8 && hour < 20) return true;
+    if (hour === 8 && minute >= 0) return true;
+    if (hour === 20 && minute === 0) return true;
+    return false;
+  }
+  // Piątek (5) - Niedziela (0): 8:00 - 22:00
+  if (day === 5 || day === 6 || day === 0) {
+    if (hour > 8 && hour < 22) return true;
+    if (hour === 8 && minute >= 0) return true;
+    if (hour === 22 && minute === 0) return true;
+    return false;
+  }
+  return false;
+}
 import ContactForm from "@/components/contact-form";
 export default function ContactSection() {
   return (
@@ -54,12 +76,23 @@ export default function ContactSection() {
               </div>
 
               <div className="pt-6">
-                <h4 className="font-bold mb-4">Godziny otwarcia</h4>
+                <h4 className="font-bold mb-4 flex items-center gap-4">
+                  Godziny otwarcia
+                  {isOpenNow() ? (
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-500 text-white text-xs font-semibold animate-pulse">
+                      Otwarte teraz
+                    </span>
+                  ) : (
+                    <span className="inline-block px-3 py-1 rounded-full bg-red-500 text-white text-xs font-semibold">
+                      Zamknięte
+                    </span>
+                  )}
+                </h4>
                 <div className="grid grid-cols-2 gap-2 text-neutral-600 dark:text-neutral-300">
-                  <div>Poniedziałek - Piątek</div>
-                  <div>7:00 - 16:00</div>
-                  <div>Sobota - Niedziela</div>
-                  <div>Zamknięte</div>
+                  <div>Poniedziałek - Czwartek</div>
+                  <div>8:00 - 20:00</div>
+                  <div>Piątek - Niedziela</div>
+                  <div>8:00 - 22:00</div>
                 </div>
               </div>
             </div>

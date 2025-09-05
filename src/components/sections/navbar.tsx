@@ -114,7 +114,7 @@ export default function Navbar() {
               {scrolled || isDarkMode ? (
                 <div className="flex items-center">
                   <Image
-                    src="/jd.jpg"
+                    src="/jd.png"
                     alt="Jacob Detaling"
                     width={48}
                     height={48}
@@ -125,13 +125,15 @@ export default function Navbar() {
               ) : (
                 <div className="flex items-center">
                   <Image
-                    src="/jd.jpg"
+                    src="/jd.png"
                     alt="Jacob Detaling"
                     width={48}
                     height={48}
                     className="object-contain mr-2"
                   />
-                  <span className="font-bold text-lg">Jacob Detaling</span>
+                  <span className="font-bold text-lg text-white">
+                    Jacob Detaling
+                  </span>
                 </div>
               )}
             </div>

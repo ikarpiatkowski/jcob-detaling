@@ -54,7 +54,7 @@ export default function AnimatedHeroImage({
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
         setIsTransitioning(false);
         setIsLoaded(false);
-      }, 400); // Increased duration for smoother transition
+      }, 1); // Increased duration for smoother transition
 
       return () => clearTimeout(timer);
     }
@@ -73,8 +73,8 @@ export default function AnimatedHeroImage({
           }}
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{
-            opacity: { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] },
-            scale: { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] },
+            opacity: { duration: 1.6, ease: [0.43, 0.13, 0.23, 0.96] },
+            scale: { duration: 1.6, ease: [0.43, 0.13, 0.23, 0.96] },
           }}
         >
           <motion.div

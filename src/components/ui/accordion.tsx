@@ -52,16 +52,10 @@ function AccordionContent({
   children,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
-  // Płynna animacja max-height + opacity
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className={cn(
-        "overflow-hidden text-sm transition-all duration-300",
-        "data-[state=open]:max-h-[500px] data-[state=open]:opacity-100 data-[state=open]:py-2",
-        "data-[state=closed]:max-h-0 data-[state=closed]:opacity-0 data-[state=closed]:py-0",
-        className
-      )}
+      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
       {...props}
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>

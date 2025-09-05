@@ -11,9 +11,5 @@ Jacob Detaling - Landing Page
 - cennik
 - call me button + email
 - navbar names
-- faq improv
-- features story
-- company story
 - matching photos
 - tags (BMW, AUDI, 2021 itp.)
-- opinie

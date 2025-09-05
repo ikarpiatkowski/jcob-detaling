@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/animated-text";
 import AnimatedHeroImage from "@/components/animated-hero-image";
 
-const heroImages = ["/main1.jpg", "/main2.jpg", "/main3.jpg", "/main4.jpg"];
+const heroImages = ["/hero1.png", "/hero2.jpg"];
 
 export default function HeroSection() {
   return (

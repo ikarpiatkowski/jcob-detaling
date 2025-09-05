@@ -17,6 +17,7 @@ import {
   X,
   Handshake,
   Sparkles,
+  Bubbles,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -54,6 +55,7 @@ export default function FeatureCard({
     X,
     Handshake,
     Sparkles,
+    Bubbles,
   };
 
   const IconComponent = icons[icon] || Shield;
@@ -71,17 +73,18 @@ export default function FeatureCard({
       )}
     >
       <div className="flex items-center space-x-2">
-      <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-        <IconComponent className={cn("h-6 w-6", iconColor)} />
+        <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+          <IconComponent className={cn("h-6 w-6", iconColor)} />
+        </div>
+        <h3
+          className={cn(
+            "text-xl font-semibold mb-2 bg-gradient-to-r bg-clip-text text-transparent",
+            titleGradient
+          )}
+        >
+          {title}
+        </h3>
       </div>
-      <h3
-        className={cn(
-          "text-xl font-semibold mb-2 bg-gradient-to-r bg-clip-text text-transparent",
-          titleGradient
-        )}
-      >
-        {title}
-      </h3></div>
       <p className="text-neutral-600 dark:text-neutral-300">{description}</p>
     </motion.div>
   );
