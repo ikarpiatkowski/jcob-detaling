@@ -34,7 +34,7 @@ export default function AboutSection() {
               src="/jd.png"
               alt="Our workshop"
               fill
-              className="object-cover"
+              className="object-cover dark:bg-inherit bg-neutral-200/80 rounded-full"
             />
           </div>
         </div>

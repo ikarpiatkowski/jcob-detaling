@@ -118,7 +118,7 @@ export default function PriceSection() {
           </h2>
         </div>
         <div className="space-y-12">
-          {priceSections.map((section, idx) => (
+          {priceSections.map((section) => (
             <div
               key={section.title}
               className="rounded-2xl shadow-lg bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 overflow-hidden"

@@ -12,7 +12,7 @@ export default function Footer() {
                 alt="Jacob Detaling"
                 width={48}
                 height={48}
-                className="object-contain mr-2"
+                className="object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-full"
               />
               <h3 className="text-xl font-bold">Jacob Detailing</h3>
             </div>

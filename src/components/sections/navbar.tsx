@@ -16,7 +16,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Nasze usługi", href: "#features" },
+  { label: "Usługi", href: "#features" },
   { label: "Galeria", href: "#gallery" },
   { label: "Cennik", href: "#pricetable" },
   { label: "O nas", href: "#about" },
@@ -93,8 +93,8 @@ export default function Navbar() {
     }
   };
 
-  const isDarkMode = theme === "dark";
-  const isHeroSection = !scrolled;
+  // const isDarkMode = theme === "dark";
+  // const isHeroSection = !scrolled;
 
   return (
     <header
@@ -118,7 +118,10 @@ export default function Navbar() {
                   alt="Jacob Detaling"
                   width={48}
                   height={48}
-                  className="object-contain mr-2"
+                  className={cn(
+                    "object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-full",
+                    !scrolled && "bg-inherit"
+                  )}
                 />
                 <span
                   className={cn("font-bold text-lg", !scrolled && "text-white")}

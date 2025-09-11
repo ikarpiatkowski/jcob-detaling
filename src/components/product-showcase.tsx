@@ -110,10 +110,12 @@ export default function ProductShowcase() {
   // Auto-advance carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNext();
+      setDirection(1);
+      setIsAnimating(true);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [currentIndex, isAnimating]);
+  }, [products.length]);
 
   const variants = {
     enter: (direction: number) => ({

@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Bubbles, Car, Target, Sparkles, Wrench, Hammer } from "lucide-react";
+import { Bubbles, Car, Target, Sparkles, Wrench } from "lucide-react";
 
 const sections = [
   {
