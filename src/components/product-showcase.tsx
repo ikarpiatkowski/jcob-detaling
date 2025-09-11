@@ -115,7 +115,7 @@ export default function ProductShowcase() {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [products.length]);
+  }, []);
 
   const variants = {
     enter: (direction: number) => ({

@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import Image from "next/image";
 import { PL, US } from "country-flag-icons/react/3x2"; // Import flag icons
 
