@@ -16,10 +16,11 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Start", href: "#home" },
-  { label: "Cennik", href: "#features" },
-  { label: "Galeria", href: "#offer" },
+  { label: "Nasze usługi", href: "#features" },
+  { label: "Galeria", href: "#gallery" },
+  { label: "Cennik", href: "#pricetable" },
   { label: "O nas", href: "#about" },
+  { label: "FAQ", href: "#faq" },
   { label: "Kontakt", href: "#contact" },
 ];
 
@@ -111,31 +112,20 @@ export default function Navbar() {
             className="flex items-center"
           >
             <div className="relative">
-              {scrolled || isDarkMode ? (
-                <div className="flex items-center">
-                  <Image
-                    src="/jd.png"
-                    alt="Jacob Detaling"
-                    width={48}
-                    height={48}
-                    className="object-contain mr-2"
-                  />
-                  <span className="font-bold text-lg">Jacob Detaling</span>
-                </div>
-              ) : (
-                <div className="flex items-center">
-                  <Image
-                    src="/jd.png"
-                    alt="Jacob Detaling"
-                    width={48}
-                    height={48}
-                    className="object-contain mr-2"
-                  />
-                  <span className="font-bold text-lg text-white">
-                    Jacob Detaling
-                  </span>
-                </div>
-              )}
+              <div className="flex items-center">
+                <Image
+                  src="/jd.png"
+                  alt="Jacob Detaling"
+                  width={48}
+                  height={48}
+                  className="object-contain mr-2"
+                />
+                <span
+                  className={cn("font-bold text-lg", !scrolled && "text-white")}
+                >
+                  Jacob Detaling
+                </span>
+              </div>
             </div>
           </Link>
 

@@ -60,12 +60,12 @@ export default function FAQSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Najczęściej zadawane pytania
           </h2>
-          <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+          <p className="text-neutral-600 dark:text-neutral-300 mx-auto">
             Masz pytania? Sprawdź odpowiedzi na najczęściej zadawane przez
             klientów!
           </p>
         </div>
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <Accordion
             type="single"
             collapsible
@@ -76,7 +76,7 @@ export default function FAQSection() {
               <AccordionItem
                 key={item.question}
                 value={`item-${idx}`}
-                className="border border-neutral-200 dark:border-neutral-700 rounded-lg mb-4 bg-white/80 dark:bg-neutral-900/80 shadow-sm overflow-hidden"
+                className="rounded-lg mb-4 bg-white/80 dark:bg-neutral-900/80 shadow-sm overflow-hidden "
               >
                 <AccordionTrigger className="px-6 py-4 text-lg font-semibold text-left text-neutral-800 dark:text-neutral-100">
                   {item.question}

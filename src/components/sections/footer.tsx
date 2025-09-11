@@ -1,11 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <footer className="py-12">
+    <footer className="py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Jacob Detailing</h3>
+            <div className="flex items-center mb-4">
+              <Image
+                src="/jd.png"
+                alt="Jacob Detaling"
+                width={48}
+                height={48}
+                className="object-contain mr-2"
+              />
+              <h3 className="text-xl font-bold">Jacob Detailing</h3>
+            </div>
             <p className="dark:text-neutral-400 text-neutral-600">
               Profesjonalny auto detailing, ochrona lakieru, czyszczenie wnętrz
               i pielęgnacja samochodów.
@@ -13,7 +23,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Nawigacja</h4>
+            <h4 className="text-lg font-semibold my-2 mb-4">Nawigacja</h4>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -43,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Usługi</h4>
+            <h4 className="text-lg font-semibold my-2 mb-4">Usługi</h4>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -81,13 +91,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Śledź nas na</h4>
-            <div className="flex space-x-4">
-              {/* Ikona Facebooka (kolor niebieski) */}
-              <Link href="#" className="transition-colors">
-                <span className="sr-only">Facebook</span>
+            <h4 className="text-lg font-semibold my-2 mb-4">Śledź nas na</h4>
+            <div className="flex space-x-4 items-center">
+              {/* Facebook Icon */}
+              <Link
+                href="#"
+                className="transition-colors flex items-center justify-center"
+                aria-label="Facebook"
+              >
                 <svg
-                  className="h-6 w-6 text-blue-500 hover:text-blue-600"
+                  className="h-10 w-10 text-blue-500 hover:text-blue-600"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -99,11 +112,14 @@ export default function Footer() {
                   />
                 </svg>
               </Link>
-              {/* Ikona Instagrama (kolor różowo-fioletowy) */}
-              <Link href="#" className="transition-colors">
-                <span className="sr-only">Instagram</span>
+              {/* Instagram Icon */}
+              <Link
+                href="#"
+                className="transition-colors flex items-center justify-center"
+                aria-label="Instagram"
+              >
                 <svg
-                  className="h-6 w-6 text-fuchsia-500 hover:text-fuchsia-600"
+                  className="h-10 w-10 text-fuchsia-500 hover:text-fuchsia-600"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -115,27 +131,14 @@ export default function Footer() {
                   />
                 </svg>
               </Link>
-              {/* Ikona TikToka (kolor czarny lub biały) */}
-              <Link href="#" className="transition-colors">
-                <span className="sr-only">TikTok</span>
+              {/* Google Icon (standardized size) */}
+              <Link
+                href="#"
+                className="transition-colors flex items-center justify-center"
+                aria-label="Google"
+              >
                 <svg
-                  className="h-6 w-6 text-black dark:text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M21.5 7.5c-1.93 0-3.5-1.57-3.5-3.5h-3v13.25a2.25 2.25 0 11-2.25-2.25c.38 0 .75.07 1.09.2V13.2a4.25 4.25 0 104.16 4.3V9.97a6.48 6.48 0 003.5 1.03V7.5z"
-                  />
-                </svg>
-              </Link>
-              {/* Ikona Google (pozostaje bez zmian, jest już kolorowa) */}
-              <Link href="#" className="transition-colors">
-                <span className="sr-only">Google</span>
-                <svg
-                  className="h-6 w-6"
+                  className="h-8 w-8"
                   viewBox="0 0 48 48"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

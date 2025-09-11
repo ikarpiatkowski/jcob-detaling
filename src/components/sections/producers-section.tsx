@@ -13,8 +13,8 @@ const producerImages = [
 
 export default function ProducersSection() {
   return (
-    <section className="py-8 border-y border-neutral-100 dark:border-neutral-800">
-      <div className="container mx-auto px-4 flex items-center justify-center gap-6 flex-wrap space-x-4">
+    <section className="py-16 bg-stripes">
+      <div className=" mx-auto px-4 flex items-center justify-center gap-6 flex-wrap space-x-4">
         {producerImages.map((src, idx) => (
           <div key={idx} className="w-30 h-30 flex items-center justify-center">
             <Image

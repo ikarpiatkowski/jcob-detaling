@@ -9,54 +9,55 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-// Sample product data
+// Dane produktów autodetailingu
 const products = [
   {
     id: 1,
-    name: "Modern Matte White",
+    name: "Kompleksowe mycie zewnętrzne",
     description:
-      "Sleek and minimalist matte white fronts for a contemporary look.",
+      "Dokładne mycie karoserii, felg i nadkoli z użyciem bezpiecznych środków oraz piany aktywnej.",
     image: "/main1.jpg",
-    color: "White",
+    color: "Biały / Srebrny",
   },
   {
     id: 2,
-    name: "Glossy Anthracite",
+    name: "Pranie tapicerki i wnętrza",
     description:
-      "Elegant high-gloss anthracite fronts that add sophistication to any space.",
+      "Głębokie czyszczenie tapicerki materiałowej lub skórzanej, odkurzanie i detailing wnętrza.",
     image: "/main2.jpg",
-    color: "Dark neutral",
+    color: "Szary / Czarny",
   },
   {
     id: 3,
-    name: "Pastel Blue",
+    name: "Korekta lakieru",
     description:
-      "Soft pastel blue fronts that create a calming and inviting atmosphere.",
+      "Usuwanie rys, zmatowień i przywracanie głębi koloru lakieru w kilku etapach polerowania.",
     image: "/main3.jpg",
-    color: "Light Blue",
+    color: "Czerwony / Bordowy",
   },
   {
     id: 4,
-    name: "Rich Burgundy",
+    name: "Aplikacja powłoki ceramicznej",
     description:
-      "Deep burgundy fronts that add warmth and luxury to your interior.",
+      "Profesjonalna ochrona lakieru przed czynnikami zewnętrznymi, nadająca hydrofobowość i połysk.",
     image: "/main4.jpg",
-    color: "Burgundy",
+    color: "Bezbarwny / Transparentny",
   },
   {
     id: 5,
-    name: "Forest Green",
+    name: "Renowacja reflektorów",
     description:
-      "Sophisticated forest green fronts for a natural and elegant look.",
+      "Przywracanie przejrzystości i fabrycznego wyglądu lampom samochodowym.",
     image: "/main2.jpg",
-    color: "Dark Green",
+    color: "Żółty / Przezroczysty",
   },
   {
     id: 6,
-    name: "Metallic Gold",
-    description: "Luxurious metallic gold fronts that make a bold statement.",
+    name: "Woskowanie i zabezpieczenie",
+    description:
+      "Nadanie lakierowi głębi, połysku i ochrony na długie tygodnie.",
     image: "/main3.jpg",
-    color: "Gold",
+    color: "Złoty / Bursztynowy",
   },
 ];
 
@@ -176,9 +177,6 @@ export default function ProductShowcase() {
                       {products[currentIndex].color}
                     </span>
                   </div>
-                  <Button variant="default" size="lg">
-                    View Details
-                  </Button>
                 </div>
               </div>
             </div>
@@ -190,9 +188,8 @@ export default function ProductShowcase() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-neutral-800/80 dark:hover:bg-neutral-800 border-none rounded-full h-10 w-10 z-10"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/40 hover:bg-white/60 dark:bg-neutral-800/60 dark:hover:bg-neutral-800/80  border-none rounded-full h-8 w-8 z-10"
         onClick={handlePrev}
-        disabled={isAnimating}
       >
         <ChevronLeft className="h-6 w-6" />
       </Button>
@@ -200,9 +197,8 @@ export default function ProductShowcase() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-neutral-800/80 dark:hover:bg-neutral-800 border-none rounded-full h-10 w-10 z-10"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/40 hover:bg-white/60 dark:bg-neutral-800/60 dark:hover:bg-neutral-800/80 border-none rounded-full h-8 w-8 z-10"
         onClick={handleNext}
-        disabled={isAnimating}
       >
         <ChevronRight className="h-6 w-6" />
       </Button>

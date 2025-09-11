@@ -24,7 +24,7 @@ function isOpenNow() {
 import ContactForm from "@/components/contact-form";
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-stripes">
+    <section id="contact" className="py-10 bg-stripes">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Napisz do nas</h2>
@@ -89,10 +89,10 @@ export default function ContactSection() {
                   )}
                 </h4>
                 <div className="grid grid-cols-2 gap-2 text-neutral-600 dark:text-neutral-300">
-                  <div>Poniedziałek - Czwartek</div>
-                  <div>8:00 - 20:00</div>
-                  <div>Piątek - Niedziela</div>
+                  <div>Poniedziałek - Piątek</div>
                   <div>8:00 - 22:00</div>
+                  <div>Sobota - Niedziela</div>
+                  <div>8:00 - 20:00</div>
                 </div>
               </div>
             </div>
