@@ -186,7 +186,7 @@ export default function ReviewsSection() {
             handleTouchStart(e);
           }}
           onTouchMove={handleTouchMove}
-          onTouchEnd={(e) => {
+          onTouchEnd={() => {
             setIsPaused(false);
             handleTouchEnd();
           }}

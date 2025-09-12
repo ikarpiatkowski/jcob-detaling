@@ -64,7 +64,7 @@ const products = [
 export default function ProductShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [_, setIsAnimating] = useState(false);
+  // const [isAnimating, setIsAnimating] = useState(false); // Unused, removed to fix lint error
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
@@ -128,7 +128,6 @@ export default function ProductShowcase() {
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
-      setIsAnimating(true);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
     }, 5000);
     return () => clearInterval(interval);
