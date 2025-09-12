@@ -12,7 +12,7 @@ export default function AboutSection() {
               O naszej firmie
             </h2>
             <p className="text-neutral-600 dark:text-neutral-300 mb-4">
-              Dzięki ponad 15-letniemu doświadczeniu w branży detailingu,
+              Dzięki ponad 5-letniemu doświadczeniu w branży detailingu,
               staliśmy się liderem w dziedzinie kompleksowej pielęgnacji
               pojazdów.
             </p>

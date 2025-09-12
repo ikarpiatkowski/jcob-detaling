@@ -48,7 +48,10 @@ export default function ContactSection() {
                 <div>
                   <h4 className="font-bold">Telefon</h4>
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    +48 515 125 692
+                    <a href="tel:+48515125692">+48 515 125 692</a>
+                  </p>
+                  <p className="text-neutral-600 dark:text-neutral-300">
+                    <a href="tel:+48513797298">+48 513 797 298</a>
                   </p>
                 </div>
               </div>
@@ -58,7 +61,9 @@ export default function ContactSection() {
                 <div>
                   <h4 className="font-bold">Email</h4>
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    jacobdetailing02@gmail.com
+                    <a href="mailto:jacobdetailing02@gmail.com">
+                      jacobdetailing02@gmail.com
+                    </a>
                   </p>
                 </div>
               </div>
@@ -68,9 +73,15 @@ export default function ContactSection() {
                 <div>
                   <h4 className="font-bold">Adres</h4>
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    ul. Generała Józefa Hallera 58
-                    <br />
-                    87-100 Toruń, Polska
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=ul.+Generała+Józefa+Hallera+58,+87-100+Toruń,+Polska"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      ul. Generała Józefa Hallera 58
+                      <br />
+                      87-100 Toruń, Polska
+                    </a>
                   </p>
                 </div>
               </div>

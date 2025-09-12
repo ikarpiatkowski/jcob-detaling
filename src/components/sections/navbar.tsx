@@ -170,7 +170,12 @@ export default function Navbar() {
             <FlagToggle isTransparent={!scrolled} />
             <ThemeToggle isTransparent={!scrolled} />
             <button
-              className="focus:outline-none"
+              className={cn(
+                "focus:outline-none transition-colors",
+                !scrolled
+                  ? "text-white/80 hover:text-white"
+                  : "text-foreground/80 hover:text-foreground"
+              )}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >

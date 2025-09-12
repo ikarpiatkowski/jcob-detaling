@@ -109,85 +109,102 @@ const extraServices = [
 
 export default function PriceTableShadcn() {
   return (
-    <div className="mx-auto py-16 px-2">
+    <section id="pricetable" className=" mx-auto py-16 px-2">
       <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
         Cennik usług
       </h1>
       <div className="space-y-12 max-w-3xl mx-auto">
-        {sections.map((section) => (
-          <div key={section.title}>
-            <div className="flex items-center gap-2 mb-2 text-xl font-semibold">
-              <span className="text-2xl">{section.icon}</span>
-              {section.title}
+        {sections.map((section, idx) => (
+          <div
+            key={section.title}
+            id={
+              [
+                "detailing-wnetrza",
+                "detailing-wnetrzny",
+                "pranie-tapicerki",
+                "woskowanie",
+                "pakiety-kompleksowe",
+                "korekta-lakieru",
+              ][idx]
+            }
+            className="overflow-x-auto"
+          >
+            <div className="min-w-[600px] md:min-w-0">
+              <Table className="rounded-lg overflow-hidden w-full">
+                <TableHeader>
+                  <TableRow>
+                    {section.headers.map((header, j) => (
+                      <TableHead
+                        key={header}
+                        className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800"
+                      >
+                        {j === 0 ? (
+                          <div className="flex items-center gap-2 font-semibold">
+                            <span className="text-2xl">{section.icon}</span>
+                            {section.title}
+                          </div>
+                        ) : (
+                          header
+                        )}
+                      </TableHead>
+                    ))}
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {section.rows.map((row, i) => (
+                    <TableRow
+                      key={i}
+                      className="hover:bg-primary/10 dark:hover:bg-primary/20 border-b bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700"
+                    >
+                      {row.map((cell, j) => (
+                        <TableCell
+                          key={j}
+                          className="border-r border-neutral-200 dark:border-neutral-700 last:border-r-0 bg-neutral-50 dark:bg-neutral-900"
+                        >
+                          {cell}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
-            <Table className="rounded-lg overflow-hidden">
+          </div>
+        ))}
+        <div className="overflow-x-auto">
+          <div className="min-w-[400px] md:min-w-0">
+            <Table className="rounded-lg overflow-hidden w-full">
               <TableHeader>
                 <TableRow>
-                  {section.headers.map((header) => (
-                    <TableHead
-                      key={header}
-                      className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800/60"
-                    >
-                      {header}
-                    </TableHead>
-                  ))}
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 ">
+                    <div className="flex items-center gap-2 font-semibold">
+                      <Wrench className="text-rose-500" /> Usługi dodatkowe
+                    </div>
+                  </TableHead>
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800">
+                    Cena
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {section.rows.map((row, i) => (
+                {extraServices.map((row, i) => (
                   <TableRow
                     key={i}
-                    className="hover:bg-primary/10 dark:hover:bg-primary/20 border-b border-neutral-200 dark:border-neutral-700"
+                    className="hover:bg-primary/10 dark:hover:bg-primary/20 border-b bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700"
                   >
-                    {row.map((cell, j) => (
-                      <TableCell
-                        key={j}
-                        className="border-r border-neutral-200 dark:border-neutral-700 last:border-r-0"
-                      >
-                        {cell}
-                      </TableCell>
-                    ))}
+                    <TableCell className="border-r border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
+                      {row[0]}
+                    </TableCell>
+                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
+                      {row[1]}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </div>
-        ))}
-        <div>
-          <div className="flex items-center gap-2 mb-2 text-xl font-semibold">
-            <Wrench className="text-rose-500 w-6 h-6" /> Usługi dodatkowe
-          </div>
-          <Table className="rounded-lg overflow-hidden">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800/60">
-                  Usługa
-                </TableHead>
-                <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800/60">
-                  Cena
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {extraServices.map((row, i) => (
-                <TableRow
-                  key={i}
-                  className="border-l border-r border-rhover:bg-primary/10 dark:hover:bg-primary/20 border-b border-neutral-200 dark:border-neutral-700"
-                >
-                  {row.map((cell, j) => (
-                    <TableCell
-                      key={j}
-                      className="border-l border-r border-b border-neutral-200 dark:border-neutral-700"
-                    >
-                      {cell}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

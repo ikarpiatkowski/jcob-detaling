@@ -1,12 +1,22 @@
-import Link from "next/link";
+"use client";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/animated-text";
 import AnimatedHeroImage from "@/components/animated-hero-image";
+import { motion } from "motion/react";
 
 const heroImages = ["/hero1.png", "/hero2.jpg"];
 
 export default function HeroSection() {
+  // Smooth scroll for chevron (jak w navbarze)
+  const handleChevronClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.querySelector("#features");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -25,10 +35,15 @@ export default function HeroSection() {
             idealnie czyste wnętrze. Stawiamy na jakość, nie na pośpiech.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" asChild>
-              <Link href="#offer">
-                Sprawdź nasze usługi <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button
+              size="lg"
+              onClick={(e) => {
+                e.preventDefault();
+                const section = document.querySelector("#pricetable");
+                if (section) section.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Sprawdź nasze usługi <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               size="lg"
@@ -36,18 +51,26 @@ export default function HeroSection() {
               className="bg-white/10 text-white border-white/20 hover:bg-white/20"
               asChild
             >
-              <Link href="#contact">Zadzwoń</Link>
+              <a href="tel:+48515125692">Zadzwoń</a>
             </Button>
           </div>
         </div>
       </div>
-      <a
+      <motion.a
         href="#features"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce group focus:outline-none"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group focus:outline-none"
+        onClick={handleChevronClick}
+        initial={{ y: 0 }}
+        animate={{ y: [0, 12, 0] }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.5,
+          ease: "easeInOut",
+        }}
       >
         <ChevronRight className="h-8 w-8 text-white rotate-90 transition-transform group-hover:scale-110" />
         <span className="sr-only">Przewiń do cennika</span>
-      </a>
+      </motion.a>
     </section>
   );
 }

@@ -1,21 +1,21 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const reviews = [
   {
-    name: "Arek Wiśniewski",
+    name: "Arek W.",
     stars: 5,
     text: "Polecam tę firmę! Zostawiłem dwa samochody do przygotowania lakieru, kół i opon, aby jak najlepiej wyglądały do reklamy wideo. Oba samochody utrzymywały czystość przez długi czas, co świadczy o dobrej chemii i technice detailingu. Ogromny plus za przyjęcie nas w weekend i szybką realizację.",
   },
   {
-    name: "Sebastian Chrzanowski",
+    name: "Sebastian Ch.",
     stars: 5,
     text: "Dzisiaj oddałem auto I jestem bardzo zadowolony z usługi. Auto wyglądało jak nowe! Polecam!!",
   },
   {
-    name: "Piotr Mikuszewski",
+    name: "Piotr M.",
     stars: 5,
     text: "Korzystałem z usług tej firmy po raz pierwszy i jestem bardzo pozytywnie zaskoczony. Samochód został nie tylko dokładnie wysprzątany, ale też świetnie zakonserwowany – lakier odzyskał blask, a wnętrze wygląda jak nowe. Profesjonalne podejście, terminowość i dbałość o detale zasługują na najwyższą ocenę. Zdecydowanie polecam!",
   },
@@ -25,9 +25,74 @@ const reviews = [
     text: "Z całego serca polecam tę firmę! Skorzystałem z usługi detailingu i efekt przeszedł moje oczekiwania – samochód wygląda jak prosto z salonu. Lakier nabrał głębi, wnętrze zostało dokładnie wyczyszczone, a każdy detal dopieszczony. Profesjonalne podejście, świetny kontakt i terminowość. Widać, że robią to z pasją i znają się na rzeczy. Na pewno wrócę!",
   },
   {
-    name: "Tomasz Niezgoda",
+    name: "Tomasz N.",
     stars: 5,
     text: "Jestem bardzo zadowolony z usługi i umowie się na dodatkowe pranie wnętrza. Obsługa kontaktowa, miła i elastyczna względem terminów. Aż przyjemnie być klientem 😀",
+  },
+  {
+    name: "Anka M.",
+    stars: 5,
+    text: "Bardzo profesjonalnie wykonana usługa i bardzo miły Pan. Polecam! Warto dodać, ze lifting i czyszczenie w przyzwoitej i niewygórowanej cenie!",
+  },
+  {
+    name: "Dawid W.",
+    stars: 5,
+    text: "Z całego serca polecam tę firmę! Skorzystałem z usługi detailingu i efekt przeszedł moje oczekiwania – samochód wygląda jak prosto z salonu. Lakier nabrał głębi, wnętrze zostało dokładnie wyczyszczone, a każdy detal dopieszczony. Profesjonalne podejście, świetny kontakt i terminowość. Widać, że robią to z pasją i znają się na rzeczy. Na pewno wrócę!",
+  },
+  {
+    name: "Ziomo Ziomal",
+    stars: 5,
+    text: "Świetnie wykonana praca! Serdecznie dziękuję za perfekcyjne czyszczenie auta na długi słoneczny weekend! Polecam z całego serca!",
+  },
+  {
+    name: "Unknown command:",
+    stars: 5,
+    text: "Miałem przyjemność zostawić auto u tego młodego chłopaka. Autko było zajechane, plamy na siedzeniach itp a naprawdę gdy je odebrałem to byłem miło zaskoczony. Cena tez jak najbardziej zadowala. Polecam",
+  },
+  {
+    name: "k k",
+    stars: 5,
+    text: "Bardzo dokładna i perfekcyjna robota. Auto po odebraniu wyglądało jak by wyjechało prosto z salonu. Bardzo polecam!!!",
+  },
+  {
+    name: "Wioletta W.",
+    stars: 5,
+    text: "Pan Bardzo profesjonalnie podchodzi do powierzonego mu zadania , jestem bardzo zadowolona z czystym sumieniem polecam jego usługi",
+  },
+  {
+    name: "Marcin W.",
+    stars: 5,
+    text: "Bardzo polecam . Samochód zajechany użytkowaniem. Efekt końcowy bardzo mie zachwicił dziękuję .polecam",
+  },
+  {
+    name: "No Hejka Skąd To Zwątpienie ?",
+    stars: 5,
+    text: "Usługa wykonana rewelacyjnie, napewno wrócę nie raz! Polecam gorąco👌🏼",
+  },
+  {
+    name: "Maggie P-wska",
+    stars: 5,
+    text: "Fachowa obsługa, wszystko dopięte na ostatni guzik 👌🏼 gorąco polecam! 🔥",
+  },
+  {
+    name: "Michał L.",
+    stars: 5,
+    text: "Zdecydowanie polecam z całego serca, usługi na najwyższym poziomie!",
+  },
+  {
+    name: "Kacper G.",
+    stars: 5,
+    text: "Wszystko elegancko i na bardzo dobrym poziomie. Polecam",
+  },
+  {
+    name: "Sebastian K.",
+    stars: 5,
+    text: "Profesjonalnie wykonane mycie i sprzątanie. Polecam",
+  },
+  {
+    name: "Czerni",
+    stars: 5,
+    text: "Profesjonalna obsługa. Polecam serdecznie",
   },
 ];
 
@@ -35,6 +100,10 @@ const AUTOPLAY_INTERVAL = 5000;
 
 export default function ReviewsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const prevReview = () => {
     setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
@@ -44,17 +113,55 @@ export default function ReviewsSection() {
     setCurrentIndex((prev) => (prev + 1) % reviews.length);
   };
 
-  // Efektywne i czyste zarządzanie timerem do automatycznego przewijania
+  // Auto-advance with pause on hover/touch
   useEffect(() => {
-    const timer = setInterval(() => {
-      // Użycie funkcji w setSate, aby mieć dostęp do najnowszej wartości state
+    if (isPaused) return;
+    timerRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
     }, AUTOPLAY_INTERVAL);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [currentIndex, isPaused]);
 
-    // Zwrócenie funkcji czyszczącej, która zatrzymuje timer.
-    // Działa to przy każdym re-renderze (zmianie currentIndex) i przy odmontowaniu komponentu.
-    return () => clearInterval(timer);
-  }, [currentIndex]); // Zależność od currentIndex, aby resetować timer przy każdej zmianie opinii
+  // Swipe support (desktop + mobile)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    if (
+      touchStartX.current !== null &&
+      touchEndX.current !== null &&
+      Math.abs(touchStartX.current - touchEndX.current) > 40
+    ) {
+      if (touchStartX.current > touchEndX.current) {
+        nextReview();
+      } else {
+        prevReview();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+  const handleMouseDown = (e: React.MouseEvent) => {
+    touchStartX.current = e.clientX;
+  };
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (
+      touchStartX.current !== null &&
+      Math.abs(touchStartX.current - e.clientX) > 40
+    ) {
+      if (touchStartX.current > e.clientX) {
+        nextReview();
+      } else {
+        prevReview();
+      }
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section
@@ -70,7 +177,22 @@ export default function ReviewsSection() {
             Sprawdź, co mówią o nas nasi klienci!
           </p>
         </div>
-        <div className="relative flex items-center justify-center h-[320px]">
+        <div
+          className="relative flex items-center justify-center h-[320px] select-none"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={(e) => {
+            setIsPaused(true);
+            handleTouchStart(e);
+          }}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={(e) => {
+            setIsPaused(false);
+            handleTouchEnd();
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+        >
           <AnimatePresence initial={false}>
             {reviews.map((review, index) => {
               const isPrev =

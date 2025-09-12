@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 const producerImages = [
   "/fxprotect.png",
@@ -9,23 +11,49 @@ const producerImages = [
   "/zvizzer.png",
   "/soft99.svg",
   "/mrrag.png",
+  "/autoglym.png",
+  "/autograph.svg",
+  "/fireball.png",
 ];
 
 export default function ProducersSection() {
+  // Duplikujemy tylko raz dla seamless loop
+  const duplicatedImages = [...producerImages, ...producerImages];
+
+  // Szerokość jednego zestawu logo
+  const itemWidth = 128 + 48; // w-32 + gap-12
+  const setWidth = producerImages.length * itemWidth;
+
   return (
     <section className="py-16 bg-stripes">
-      <div className=" mx-auto px-4 flex items-center justify-center gap-6 flex-wrap space-x-4">
-        {producerImages.map((src, idx) => (
-          <div key={idx} className="w-30 h-30 flex items-center justify-center">
-            <Image
-              src={src}
-              alt={`Logo producenta ${idx + 1}`}
-              width={128}
-              height={128}
-              className="object-contain"
-            />
-          </div>
-        ))}
+      <div className="container mx-auto overflow-hidden">
+        <motion.div
+          className="flex gap-12"
+          animate={{
+            x: [0, -setWidth],
+          }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear",
+            repeatType: "loop",
+          }}
+        >
+          {duplicatedImages.map((src, idx) => (
+            <div
+              key={`${src}-${idx}`}
+              className="w-32 h-32 flex items-center justify-center flex-shrink-0"
+            >
+              <Image
+                src={src}
+                alt={`Logo producenta ${(idx % producerImages.length) + 1}`}
+                width={128}
+                height={128}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

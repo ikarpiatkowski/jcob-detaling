@@ -64,47 +64,64 @@ const products = [
 export default function ProductShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const [_, setIsAnimating] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const handleNext = () => {
-    if (isAnimating) return;
     setDirection(1);
-    setIsAnimating(true);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
   };
 
   const handlePrev = () => {
-    if (isAnimating) return;
     setDirection(-1);
-    setIsAnimating(true);
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + products.length) % products.length
     );
   };
 
   const handleDotClick = (index: number) => {
-    if (isAnimating) return;
     setDirection(index > currentIndex ? 1 : -1);
-    setIsAnimating(true);
     setCurrentIndex(index);
   };
 
+  // Swipe support (mobile + desktop)
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
-
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
   };
-
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      handleNext();
-    } else if (touchEndX.current - touchStartX.current > 50) {
-      handlePrev();
+    if (
+      touchStartX.current !== null &&
+      touchEndX.current !== null &&
+      Math.abs(touchStartX.current - touchEndX.current) > 40
+    ) {
+      if (touchStartX.current > touchEndX.current) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
     }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+  const handleMouseDown = (e: React.MouseEvent) => {
+    touchStartX.current = e.clientX;
+  };
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (
+      touchStartX.current !== null &&
+      Math.abs(touchStartX.current - e.clientX) > 40
+    ) {
+      if (touchStartX.current > e.clientX) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
   };
 
   // Auto-advance carousel
@@ -135,16 +152,14 @@ export default function ProductShowcase() {
   return (
     <div className="relative overflow-hidden">
       <div
-        className="relative h-[500px] md:h-[600px] w-full rounded-xl overflow-hidden"
+        className="relative h-[500px] md:h-[600px] w-full rounded-xl overflow-hidden select-none"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
       >
-        <AnimatePresence
-          initial={false}
-          custom={direction}
-          onExitComplete={() => setIsAnimating(false)}
-        >
+        <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
             custom={direction}
