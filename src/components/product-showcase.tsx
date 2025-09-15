@@ -14,50 +14,32 @@ const products = [
   {
     id: 1,
     name: "Kompleksowe mycie zewnętrzne",
-    description:
-      "Dokładne mycie karoserii, felg i nadkoli z użyciem bezpiecznych środków oraz piany aktywnej.",
     image: "/main1.jpg",
-    color: "Biały / Srebrny",
   },
   {
     id: 2,
     name: "Pranie tapicerki i wnętrza",
-    description:
-      "Głębokie czyszczenie tapicerki materiałowej lub skórzanej, odkurzanie i detailing wnętrza.",
     image: "/main2.jpg",
-    color: "Szary / Czarny",
   },
   {
     id: 3,
     name: "Korekta lakieru",
-    description:
-      "Usuwanie rys, zmatowień i przywracanie głębi koloru lakieru w kilku etapach polerowania.",
     image: "/main3.jpg",
-    color: "Czerwony / Bordowy",
   },
   {
     id: 4,
     name: "Aplikacja powłoki ceramicznej",
-    description:
-      "Profesjonalna ochrona lakieru przed czynnikami zewnętrznymi, nadająca hydrofobowość i połysk.",
     image: "/main4.jpg",
-    color: "Bezbarwny / Transparentny",
   },
   {
     id: 5,
     name: "Renowacja reflektorów",
-    description:
-      "Przywracanie przejrzystości i fabrycznego wyglądu lampom samochodowym.",
     image: "/main2.jpg",
-    color: "Żółty / Przezroczysty",
   },
   {
     id: 6,
     name: "Woskowanie i zabezpieczenie",
-    description:
-      "Nadanie lakierowi głębi, połysku i ochrony na długie tygodnie.",
     image: "/main3.jpg",
-    color: "Złoty / Bursztynowy",
   },
 ];
 
@@ -179,22 +161,6 @@ export default function ProductShowcase() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                <div className="p-6 md:p-10 text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                    {products[currentIndex].name}
-                  </h3>
-                  <p className="text-white/80 mb-4 max-w-md">
-                    {products[currentIndex].description}
-                  </p>
-                  <div className="flex items-center mb-4">
-                    <span className="mr-2">Color:</span>
-                    <span className="font-medium">
-                      {products[currentIndex].color}
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
           </motion.div>
         </AnimatePresence>

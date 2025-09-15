@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jacob Detaling",
   description:
-    "Firma Jacob Detaling to polski producent wysokiej jakości frontów lakierowanych, specjalizujący się w precyzyjnej obróbce drewna i MDF. Dzięki nowoczesnym technologiom lakierowania i dbałości o detale, oferuje estetyczne i trwałe rozwiązania do kuchni, łazienek i mebli na wymiar. Firma łączy rzemieślniczą precyzję z nowoczesnym designem, dostosowując produkty do indywidualnych potrzeb klientów.",
+    "Profesjonalny auto detailing w Toruniu - ochrona lakieru, czyszczenie wnętrz i pielęgnacja samochodów.",
 };
 
 export default function RootLayout({

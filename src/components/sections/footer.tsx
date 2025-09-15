@@ -95,7 +95,7 @@ export default function Footer() {
             <div className="flex space-x-4 items-center">
               {/* Facebook Icon */}
               <Link
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61574533026006"
                 className="transition-colors flex items-center justify-center"
                 aria-label="Facebook"
               >
@@ -114,7 +114,7 @@ export default function Footer() {
               </Link>
               {/* Instagram Icon */}
               <Link
-                href="#"
+                href="https://www.instagram.com/jacob.detailing/"
                 className="transition-colors flex items-center justify-center"
                 aria-label="Instagram"
               >
@@ -132,7 +132,7 @@ export default function Footer() {
                 </svg>
               </Link>
               {/* Google Icon (standardized size) */}
-              <Link
+              {/* <Link
                 href="#"
                 className="transition-colors flex items-center justify-center"
                 aria-label="Google"
@@ -167,7 +167,7 @@ export default function Footer() {
                     </clipPath>
                   </defs>
                 </svg>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -18,6 +18,10 @@ import {
   Handshake,
   Sparkles,
   Bubbles,
+  Car,
+  Target,
+  Wrench,
+  BrushCleaning,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -56,6 +60,10 @@ export default function FeatureCard({
     Handshake,
     Sparkles,
     Bubbles,
+    Car,
+    Target,
+    Wrench,
+    BrushCleaning,
   };
 
   const IconComponent = icons[icon] || Shield;

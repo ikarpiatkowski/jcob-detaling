@@ -3,11 +3,10 @@ import FeatureCard from "@/components/feature-card";
 import React from "react";
 
 export default function FeaturesSection() {
-  // Map feature index to price table section id
-  // Synchronize features with price table content
   const features = [
     {
       id: "detailing-wnetrza",
+      targetId: "detailing-wnetrza",
       title: "Detailing wnętrza",
       description:
         "Kompleksowe czyszczenie wnętrza, pranie tapicerki i pielęgnacja skóry. Idealne odświeżenie środka auta.",
@@ -16,7 +15,8 @@ export default function FeaturesSection() {
       iconColor: "text-cyan-500",
     },
     {
-      id: "detailing-wnetrzny",
+      id: "detailing-zewnetrzny",
+      targetId: "detailing-zewnetrzny",
       title: "Detailing zewnętrzny",
       description:
         "Dokładne mycie karoserii, woskowanie i konserwacja powłoki ceramicznej dla trwałej ochrony lakieru.",
@@ -25,48 +25,75 @@ export default function FeaturesSection() {
       iconColor: "text-blue-500",
     },
     {
-      id: "pranie-tapicerki",
-      title: "Pranie tapicerki",
-      description:
-        "Dogłębne pranie tapicerki materiałowej lub skórzanej. Usuwa zabrudzenia i odświeża wnętrze pojazdu.",
-      icon: "Handshake",
-      titleGradient: "from-amber-600 to-orange-400",
-      iconColor: "text-amber-500",
-    },
-    {
-      id: "woskowanie",
-      title: "Woskowanie",
-      description:
-        "Woskowanie twardym woskiem – szybka ochrona i połysk lakieru nawet do kilku miesięcy.",
-      icon: "Leaf",
-      titleGradient: "from-green-600 to-emerald-400",
-      iconColor: "text-green-500",
-    },
-    {
       id: "pakiety-kompleksowe",
+      targetId: "pakiety-kompleksowe",
       title: "Pakiety kompleksowe",
       description:
         "Pakiet wnętrze + zewnątrz + wosk lub korekta lakieru z powłoką ceramiczną. Pełna metamorfoza auta.",
       icon: "Target",
+      titleGradient: "from-amber-600 to-orange-400",
+      iconColor: "text-amber-500",
+    },
+    {
+      id: "powloki-ceramiczne",
+      targetId: "powloki-ceramiczne",
+      title: "Powłoki ceramiczne",
+      description:
+        "Trwała ochrona lakieru dzięki powłoce ceramicznej. Odporniejsza na zarysowania i łatwiejsza w pielęgnacji.",
+      icon: "Sparkles",
+      titleGradient: "from-teal-600 to-teal-400",
+      iconColor: "text-green-500",
+    },
+    {
+      id: "korekta-lakieru",
+      targetId: "korekta-lakieru",
+      title: "Korekta lakieru",
+      description:
+        "Jedno-, dwu- lub trzyetapowa korekta lakieru. Usuwanie rys, matów i przywracanie głębi koloru.",
+      icon: "BrushCleaning",
       titleGradient: "from-fuchsia-600 to-pink-400",
       iconColor: "text-fuchsia-500",
     },
     {
-      id: "korekta-lakieru",
-      title: "Korekta lakieru",
+      id: "uslugi-dodatkowe",
+      targetId: "uslugi-dodatkowe",
+      title: "Usługi dodatkowe",
       description:
-        "Jedno-, dwu- lub trzyetapowa korekta lakieru. Usuwanie rys, matów i przywracanie głębi koloru.",
+        "Dodatkowe usługi, takie jak pranie dywaników, czyszczenie felg czy konserwacja plastików.",
       icon: "Wrench",
       titleGradient: "from-rose-600 to-red-400",
       iconColor: "text-rose-500",
     },
   ];
 
-  const handleFeatureClick = (id: string) => (e: React.MouseEvent) => {
+  const NAVBAR_OFFSET = 80;
+  const handleFeatureClick = (targetId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
+    const section = document.getElementById(targetId);
+    if (section) {
+      const y =
+        section.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
+
+  React.useEffect(() => {
+    const ids = [
+      "detailing-wnetrza",
+      "detailing-zewnetrzny",
+      "pakiety-kompleksowe",
+      "powloki-ceramiczne",
+      "korekta-lakieru",
+      "uslugi-dodatkowe",
+    ];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        (el as HTMLElement).style.scrollMarginTop = NAVBAR_OFFSET + "px";
+      }
+    });
+  }, []);
+
   return (
     <section id="features" className="py-20 bg-stripes">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +112,7 @@ export default function FeaturesSection() {
           {features.map((feature) => (
             <button
               key={feature.id}
-              onClick={handleFeatureClick(feature.id)}
+              onClick={handleFeatureClick(feature.targetId)}
               className="text-left focus:outline-none h-full flex"
             >
               <div className="w-full h-full flex">

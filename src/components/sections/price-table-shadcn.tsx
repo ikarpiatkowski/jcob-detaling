@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Table,
   TableBody,
@@ -6,12 +7,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Bubbles, Car, Target, Sparkles, Wrench } from "lucide-react";
+import {
+  Bubbles,
+  Car,
+  Target,
+  Sparkles,
+  Wrench,
+  BrushCleaning,
+} from "lucide-react";
 
 const sections = [
   {
-    icon: <Bubbles className="text-cyan-500" />,
+    id: "detailing-wnetrza",
+    icon: <Bubbles />,
+    colorClass: "text-cyan-500",
     title: "Detailing wnętrza",
+    titleGradient: "from-cyan-600 to-cyan-400",
     headers: ["Usługa", "Małe auto", "Średnie auto", "Duże auto"],
     rows: [
       ["Kompletne czyszczenie wnętrza", "120 zł", "140 zł", "160 zł"],
@@ -25,8 +36,11 @@ const sections = [
     ],
   },
   {
-    icon: <Car className="text-blue-500" />,
+    id: "detailing-zewnetrzny",
+    icon: <Car />,
+    colorClass: "text-blue-500",
     title: "Detailing zewnętrzny",
+    titleGradient: "from-blue-600 to-blue-400",
     headers: ["Usługa", "Małe auto", "Średnie auto", "Duże auto"],
     rows: [
       ["Kompletne mycie zewnętrzne", "120 zł", "140 zł", "160 zł"],
@@ -40,8 +54,11 @@ const sections = [
     ],
   },
   {
-    icon: <Target className="text-fuchsia-500" />,
+    id: "pakiety-kompleksowe",
+    icon: <Target />,
+    colorClass: "text-amber-500",
     title: "Pakiety kompleksowe",
+    titleGradient: "from-amber-600 to-orange-400",
     headers: ["Usługa", "Małe auto", "Średnie auto", "Duże auto"],
     rows: [
       [
@@ -59,8 +76,11 @@ const sections = [
     ],
   },
   {
-    icon: <Sparkles className="text-yellow-500" />,
+    id: "powloki-ceramiczne",
+    icon: <Sparkles />,
+    colorClass: "text-green-500",
     title: "Powłoki ceramiczne",
+    titleGradient: "from-teal-600 to-teal-400",
     headers: ["Usługa", "Małe auto", "Średnie auto", "Duże auto"],
     rows: [
       [
@@ -91,8 +111,11 @@ const sections = [
     ],
   },
   {
-    icon: <Wrench className="text-rose-500" />,
+    id: "korekta-lakieru",
+    icon: <BrushCleaning />,
+    colorClass: "text-fuchsia-500",
     title: "Korekty lakieru",
+    titleGradient: "from-fuchsia-600 to-pink-400",
     headers: ["Usługa", "Małe auto", "Średnie auto", "Duże auto"],
     rows: [
       ["1-etapowa korekta lakieru", "650 zł", "750 zł", "850 zł"],
@@ -109,39 +132,36 @@ const extraServices = [
 
 export default function PriceTableShadcn() {
   return (
-    <section id="pricetable" className=" mx-auto py-16 px-2">
+    <section id="pricetable" className="mx-auto py-16 px-2">
       <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
         Cennik usług
       </h1>
       <div className="space-y-12 max-w-3xl mx-auto">
-        {sections.map((section, idx) => (
-          <div
-            key={section.title}
-            id={
-              [
-                "detailing-wnetrza",
-                "detailing-wnetrzny",
-                "pranie-tapicerki",
-                "woskowanie",
-                "pakiety-kompleksowe",
-                "korekta-lakieru",
-              ][idx]
-            }
-            className="overflow-x-auto"
-          >
-            <div className="min-w-[600px] md:min-w-0">
-              <Table className="rounded-lg overflow-hidden w-full">
+        {sections.map((section) => (
+          <div key={section.title} id={section.id} className="overflow-x-auto">
+            <div className="min-w-[700px] md:min-w-0">
+              <Table className="rounded-lg overflow-hidden w-full table-fixed">
                 <TableHeader>
                   <TableRow>
                     {section.headers.map((header, j) => (
                       <TableHead
                         key={header}
-                        className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800"
+                        className={
+                          j === 0
+                            ? `border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 ${section.colorClass} font-semibold w-3/4`
+                            : "border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 w-1/6"
+                        }
                       >
                         {j === 0 ? (
-                          <div className="flex items-center gap-2 font-semibold">
-                            <span className="text-2xl">{section.icon}</span>
-                            {section.title}
+                          <div className="flex items-center gap-2">
+                            {React.cloneElement(section.icon, {
+                              className: `text-xl ${section.colorClass}`,
+                            })}
+                            <span
+                              className={`bg-gradient-to-r bg-clip-text text-transparent ${section.titleGradient}`}
+                            >
+                              {section.title}
+                            </span>
                           </div>
                         ) : (
                           header
@@ -171,17 +191,20 @@ export default function PriceTableShadcn() {
             </div>
           </div>
         ))}
-        <div className="overflow-x-auto">
-          <div className="min-w-[400px] md:min-w-0">
+        <div className="overflow-x-auto" id="uslugi-dodatkowe">
+          <div className="min-w-[700px] md:min-w-0">
             <Table className="rounded-lg overflow-hidden w-full">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 ">
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800">
                     <div className="flex items-center gap-2 font-semibold">
-                      <Wrench className="text-rose-500" /> Usługi dodatkowe
+                      <Wrench className="text-rose-500" />
+                      <span className="bg-gradient-to-r bg-clip-text text-transparent from-rose-600 to-red-400">
+                        Usługi dodatkowe
+                      </span>
                     </div>
                   </TableHead>
-                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800">
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 text-right">
                     Cena
                   </TableHead>
                 </TableRow>
@@ -195,7 +218,7 @@ export default function PriceTableShadcn() {
                     <TableCell className="border-r border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
                       {row[0]}
                     </TableCell>
-                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
+                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-right">
                       {row[1]}
                     </TableCell>
                   </TableRow>
