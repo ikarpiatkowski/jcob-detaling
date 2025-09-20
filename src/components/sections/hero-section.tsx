@@ -5,7 +5,19 @@ import AnimatedText from "@/components/animated-text";
 import AnimatedHeroImage from "@/components/animated-hero-image";
 import { motion } from "motion/react";
 
-const heroImages = ["/hero1.png", "/hero2.jpg"];
+const heroImages = [
+  "/z1.png",
+  "/z2.png",
+  "/z3.jpg",
+  "/z4.jpg",
+  "/z5.jpg",
+  "/hero1.png",
+  "/hero2.jpg",
+  "/w1.jpg",
+  "/w2.jpg",
+  "/w3.jpg",
+  "/w4.jpg",
+];
 
 export default function HeroSection() {
   // Smooth scroll for chevron (jak w navbarze)

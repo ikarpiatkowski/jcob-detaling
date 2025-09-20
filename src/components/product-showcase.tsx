@@ -11,36 +11,17 @@ import { cn } from "@/lib/utils";
 
 // Dane produktów autodetailingu
 const products = [
-  {
-    id: 1,
-    name: "Kompleksowe mycie zewnętrzne",
-    image: "/main1.jpg",
-  },
-  {
-    id: 2,
-    name: "Pranie tapicerki i wnętrza",
-    image: "/main2.jpg",
-  },
-  {
-    id: 3,
-    name: "Korekta lakieru",
-    image: "/main3.jpg",
-  },
-  {
-    id: 4,
-    name: "Aplikacja powłoki ceramicznej",
-    image: "/main4.jpg",
-  },
-  {
-    id: 5,
-    name: "Renowacja reflektorów",
-    image: "/main2.jpg",
-  },
-  {
-    id: 6,
-    name: "Woskowanie i zabezpieczenie",
-    image: "/main3.jpg",
-  },
+  { image: "/z1.png" },
+  { image: "/z2.png" },
+  { image: "/z3.jpg" },
+  { image: "/z4.jpg" },
+  { image: "/z5.jpg" },
+  { image: "/w1.jpg" },
+  { image: "/w2.jpg" },
+  { image: "/w3.jpg" },
+  { image: "/w4.jpg" },
+  { image: "/hero1.png" },
+  { image: "/hero2.jpg" },
 ];
 
 export default function ProductShowcase() {
@@ -157,7 +138,7 @@ export default function ProductShowcase() {
             <div className="relative h-full w-full">
               <Image
                 src={products[currentIndex].image || "/placeholder.svg"}
-                alt={products[currentIndex].name}
+                alt={products[currentIndex].image.toString()}
                 fill
                 className="object-cover"
               />
