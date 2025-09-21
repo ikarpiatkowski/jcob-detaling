@@ -2,18 +2,30 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 
+import fxprotect from "@/public/fxprotect.webp";
+import kiurlab from "@/public/kiurlab.webp";
+import swag from "@/public/swag.webp";
+import work from "@/public/work.webp";
+import adbl from "@/public/adbl.webp";
+import zvizzer from "@/public/zvizzer.webp";
+import soft99 from "@/public/soft99.svg";
+import mrrag from "@/public/mrrag.webp";
+import autoglym from "@/public/autoglym.webp";
+import autograph from "@/public/autograph.svg";
+import fireball from "@/public/fireball.webp";
+
 const producerImages = [
-  "/fxprotect.png",
-  "/kiurlab.png",
-  "/swag.png",
-  "/work.png",
-  "/adbl.png",
-  "/zvizzer.png",
-  "/soft99.svg",
-  "/mrrag.png",
-  "/autoglym.png",
-  "/autograph.svg",
-  "/fireball.png",
+  fxprotect,
+  kiurlab,
+  swag,
+  work,
+  adbl,
+  zvizzer,
+  soft99,
+  mrrag,
+  autoglym,
+  autograph,
+  fireball,
 ];
 
 export default function ProducersSection() {

@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion, useAnimation, AnimatePresence } from "motion/react";
 
+type ImageType = string | StaticImageData;
 interface AnimatedHeroImageProps {
-  images?: string[];
+  images?: ImageType[];
   alt: string;
 }
 
 // Default images to cycle through
-const defaultImages = [
+const defaultImages: ImageType[] = [
   "/placeholder.svg?height=1080&width=1920&text=Elegant+Lacquered+Fronts",
   "/placeholder.svg?height=1080&width=1920&text=Premium+Kitchen+Designs",
   "/placeholder.svg?height=1080&width=1920&text=Custom+Solutions",

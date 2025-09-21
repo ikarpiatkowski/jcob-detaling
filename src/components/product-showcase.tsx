@@ -3,43 +3,63 @@
 import type React from "react";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 // Dane produktów autodetailingu
-const products = [
-  { image: "/z1.png" },
-  { image: "/z2.png" },
-  { image: "/z3.jpg" },
-  { image: "/z4.jpg" },
-  { image: "/z5.jpg" },
-  { image: "/w1.jpg" },
-  { image: "/w2.jpg" },
-  { image: "/w3.jpg" },
-  { image: "/w4.jpg" },
-  { image: "/hero1.png" },
-  { image: "/hero2.jpg" },
+type ImageType = string | StaticImageData;
+
+// Domyślnie importuj webp, ale docelowo przekazuj jako props
+import z1 from "@/public/z1.webp";
+import z2 from "@/public/z2.webp";
+import z3 from "@/public/z3.webp";
+import z4 from "@/public/z4.webp";
+import z5 from "@/public/z5.webp";
+import hero1 from "@/public/hero1.webp";
+import hero2 from "@/public/hero2.webp";
+import w1 from "@/public/w1.webp";
+import w2 from "@/public/w2.webp";
+import w3 from "@/public/w3.webp";
+import w4 from "@/public/w4.webp";
+
+const defaultImages: ImageType[] = [
+  z1,
+  z2,
+  z3,
+  z4,
+  z5,
+  hero1,
+  hero2,
+  w1,
+  w2,
+  w3,
+  w4,
 ];
 
-export default function ProductShowcase() {
+interface ProductShowcaseProps {
+  images?: ImageType[];
+}
+
+export default function ProductShowcase({
+  images = defaultImages,
+}: ProductShowcaseProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  // const [isAnimating, setIsAnimating] = useState(false); // Unused, removed to fix lint error
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const handlePrev = () => {
     setDirection(-1);
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + products.length) % products.length
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
 
@@ -91,7 +111,7 @@ export default function ProductShowcase() {
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -137,8 +157,12 @@ export default function ProductShowcase() {
           >
             <div className="relative h-full w-full">
               <Image
-                src={products[currentIndex].image || "/placeholder.svg"}
-                alt={products[currentIndex].image.toString()}
+                src={images[currentIndex] || "/placeholder.svg"}
+                alt={
+                  typeof images[currentIndex] === "string"
+                    ? images[currentIndex]
+                    : `product ${currentIndex + 1}`
+                }
                 fill
                 className="object-cover"
               />
@@ -168,7 +192,7 @@ export default function ProductShowcase() {
 
       {/* Dots Indicator */}
       <div className="flex justify-center mt-6 space-x-2">
-        {products.map((_, index) => (
+        {images.map((_, index) => (
           <button
             key={index}
             onClick={() => handleDotClick(index)}
