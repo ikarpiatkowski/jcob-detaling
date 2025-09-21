@@ -31,7 +31,7 @@ export default function AboutSection() {
           </div>
           <div className="relative w-full aspect-square rounded-lg overflow-hidden">
             <Image
-              src="/jd.png"
+              src="/jd.webp"
               alt="Our workshop"
               fill
               className="object-cover dark:bg-inherit bg-neutral-200/80 rounded-full"

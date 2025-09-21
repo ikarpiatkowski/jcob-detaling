@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               <Image
-                src="/jd.png"
+                src="/jd.webp"
                 alt="Jacob Detaling"
                 width={48}
                 height={48}

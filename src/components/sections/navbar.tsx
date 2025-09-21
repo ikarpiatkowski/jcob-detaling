@@ -114,7 +114,7 @@ export default function Navbar() {
             <div className="relative">
               <div className="flex items-center">
                 <Image
-                  src="/jd.png"
+                  src="/jd.webp"
                   alt="Jacob Detaling"
                   width={48}
                   height={48}

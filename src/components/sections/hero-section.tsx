@@ -5,19 +5,19 @@ import AnimatedText from "@/components/animated-text";
 import AnimatedHeroImage from "@/components/animated-hero-image";
 import { motion } from "motion/react";
 
-import z1 from "@/public/z1.webp";
-import z2 from "@/public/z2.webp";
-import z3 from "@/public/z3.webp";
-import z4 from "@/public/z4.webp";
-import z5 from "@/public/z5.webp";
-import hero1 from "@/public/hero1.webp";
-import hero2 from "@/public/hero2.webp";
-import w1 from "@/public/w1.webp";
-import w2 from "@/public/w2.webp";
-import w3 from "@/public/w3.webp";
-import w4 from "@/public/w4.webp";
-
-const heroImages = [z1, z2, z3, z4, z5, hero1, hero2, w1, w2, w3, w4];
+const heroImages = [
+  "/z1.webp",
+  "/z2.webp",
+  "/z3.webp",
+  "/z4.webp",
+  "/z5.webp",
+  "/hero1.webp",
+  "/hero2.webp",
+  "/w1.webp",
+  "/w2.webp",
+  "/w3.webp",
+  "/w4.webp",
+];
 
 export default function HeroSection() {
   // Smooth scroll for chevron (jak w navbarze)
