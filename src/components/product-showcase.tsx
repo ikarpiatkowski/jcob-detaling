@@ -17,14 +17,13 @@ const defaultImages: ImageType[] = [
   "/z1.webp",
   "/z2.webp",
   "/z3.webp",
-  "/z4.webp",
-  "/z5.webp",
   "/hero1.webp",
   "/hero2.webp",
   "/w1.webp",
   "/w2.webp",
   "/w3.webp",
   "/w4.webp",
+  "/w5.webp",
 ];
 
 interface ProductShowcaseProps {

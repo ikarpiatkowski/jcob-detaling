@@ -132,8 +132,8 @@ export default function Footer() {
                 </svg>
               </Link>
               {/* Google Icon (standardized size) */}
-              {/* <Link
-                href="#"
+              <Link
+                href="https://share.google/CPN8SN9hAIOrur2lc"
                 className="transition-colors flex items-center justify-center"
                 aria-label="Google"
               >
@@ -167,7 +167,7 @@ export default function Footer() {
                     </clipPath>
                   </defs>
                 </svg>
-              </Link> */}
+              </Link>
             </div>
           </div>
         </div>
