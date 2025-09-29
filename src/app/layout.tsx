@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: "Jacob Detailing",
   description:
     "Profesjonalny auto detailing w Toruniu - ochrona lakieru, czyszczenie wnętrz i pielęgnacja samochodów.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -26,12 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#ffffff" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
