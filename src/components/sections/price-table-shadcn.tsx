@@ -26,7 +26,7 @@ const sections = [
     titleGradient: "from-cyan-600 to-cyan-400",
     headers: ["Usługa", "Małe", "Średnie", "Duże"],
     rows: [
-      ["Kompletne czyszczenie wnętrza", "120 zł", "140 zł", "160 zł"],
+      ["Kompletne czyszczenie wnętrza", "od 150 zł", "od 175 zł", "od 200 zł"],
       ["Pranie tapicerki materiałowej (za fotel)", "70 zł", "80 zł", "100 zł"],
       [
         "Czyszczenie i impregnacja skóry (za fotel)",
@@ -44,13 +44,13 @@ const sections = [
     titleGradient: "from-blue-600 to-blue-400",
     headers: ["Usługa", "Małe", "Średnie", "Duże"],
     rows: [
-      ["Kompletne mycie zewnętrzne", "120 zł", "140 zł", "160 zł"],
+      ["Kompletne mycie zewnętrzne", "od 125 zł", "od 150 zł", "od 175 zł"],
       ["Woskowanie twardym woskiem", "250 zł", "300 zł", "400 zł"],
       [
         "Konserwacja powłoki ceramicznej (raz w roku)",
         "300 zł",
-        "300 zł",
-        "300 zł",
+        "350 zł",
+        "400 zł",
       ],
     ],
   },
@@ -63,16 +63,22 @@ const sections = [
     headers: ["Usługa", "Małe", "Średnie", "Duże"],
     rows: [
       [
-        "Kompletny pakiet wnętrze + zewnątrz + płynny wosk (4–6 tygodni)",
-        "220 zł",
-        "250 zł",
-        "300 zł",
+        "Pakiet detailing wnętrza + zewnątrz + płynny wosk (4-6 tygodni)",
+        "od 250 zł",
+        "od 275 zł",
+        "od 300 zł",
       ],
       [
-        "Jednoetapowa korekta lakieru + twardy wosk (12-miesięczny)",
-        "950 zł",
-        "1050 zł",
-        "1200 zł",
+        "Jednoetapowa korekta lakieru + powłoka ceramiczna (1 rok)",
+        "1000 zł",
+        "1110 zł",
+        "1250 zł",
+      ],
+      [
+        "Jednoetapowa korekta lakieru + powłoka ceramiczna (2 letnia)",
+        "1400 zł",
+        "1500 zł",
+        "1600 zł",
       ],
     ],
   },
@@ -84,31 +90,12 @@ const sections = [
     titleGradient: "from-teal-600 to-teal-400",
     headers: ["Usługa", "Małe", "Średnie", "Duże"],
     rows: [
-      [
-        "Jednoetapowa korekta lakieru + powłoka ceramiczna (1 rok)",
-        "1000 zł",
-        "1110 zł",
-        "1200 zł",
-      ],
-      [
-        "Jednoetapowa korekta lakieru + powłoka ceramiczna (2 lata)",
-        "1400 zł",
-        "1500 zł",
-        "1600 zł",
-      ],
-      [
-        "Korekta lakieru + powłoka ceramiczna (4 lata) + detailing wnętrza",
-        "1900 zł",
-        "2100 zł",
-        "2300 zł",
-      ],
-      [
-        "Korekta lakieru + powłoka ceramiczna + detailing wnętrza (5 lat)",
-        "2500 zł",
-        "2700 zł",
-        "3000 zł",
-      ],
-      ["Powłoka ceramiczna na szyby (3 lata)", "250 zł", "300 zł", "350 zł"],
+      ["Powłoka ceramiczna na szyby (3 letnia)", "250 zł", "300 zł", "400 zł"],
+      ["Powłoka ceramiczna (1 rok)", "400 zł", "500 zł", "600 zł"],
+      ["Powłoka ceramiczna (2 letnia)", "800 zł", "1000 zł", "1200 zł"],
+      ["Powłoka ceramiczna (3 letnia)", "1110 zł", "1250 zł", "1400 zł"],
+      ["Powłoka ceramiczna (4 letnia)", "1600 zł", "1750 zł", "1900 zł"],
+      ["Powłoka ceramiczna (5 letnia)", "2000 zł", "2200 zł", "2400 zł"],
     ],
   },
   {
@@ -228,7 +215,7 @@ export default function PriceTableShadcn() {
                       </span>
                     </div>
                   </TableHead>
-                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 text-right whitespace-nowrap">
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 text-center whitespace-nowrap">
                     {/* ZMIANA: Użycie stałej szerokości i no-wrap */}
                     Cena
                   </TableHead>
@@ -243,7 +230,7 @@ export default function PriceTableShadcn() {
                     <TableCell className="border-r border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 whitespace-normal">
                       {row[0]}
                     </TableCell>
-                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-right whitespace-nowrap w-16 md:w-[90px]">
+                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-center whitespace-nowrap w-16 md:w-[90px]">
                       {row[1]}
                     </TableCell>
                   </TableRow>

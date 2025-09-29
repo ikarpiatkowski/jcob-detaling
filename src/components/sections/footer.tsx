@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center mb-4">
               <Image
@@ -21,78 +21,9 @@ export default function Footer() {
               i pielęgnacja samochodów.
             </p>
           </div>
-
-          <div>
-            <h4 className="text-lg font-semibold my-2 mb-4">Nawigacja</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#home"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Start
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#offer"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Oferta
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contact"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Kontakt
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold my-2 mb-4">Usługi</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#offer"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Mycie detailingowe
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#offer"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Korekta lakieru
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#offer"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Ochrona lakieru
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#offer"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white transition-colors"
-                >
-                  Pranie i czyszczenie wnętrza
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
+          <div className="text-right">
             <h4 className="text-lg font-semibold my-2 mb-4">Śledź nas na</h4>
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-4 items-center justify-end">
               {/* Facebook Icon */}
               <Link
                 href="https://www.facebook.com/profile.php?id=61574533026006"

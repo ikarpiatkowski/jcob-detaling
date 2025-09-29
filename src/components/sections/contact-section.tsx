@@ -74,11 +74,11 @@ export default function ContactSection() {
                   <h4 className="font-bold">Adres</h4>
                   <p className="text-neutral-600 dark:text-neutral-300">
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=ul.+Generała+Józefa+Hallera+58,+87-100+Toruń,+Polska"
+                      href="https://www.google.com/maps/search/?api=1&query=ul.+Lipnowska+25/29,+87-100+Toruń,+Polska"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      ul. Generała Józefa Hallera 58
+                      ul. Lipnowska 25/29
                       <br />
                       87-100 Toruń, Polska
                     </a>
