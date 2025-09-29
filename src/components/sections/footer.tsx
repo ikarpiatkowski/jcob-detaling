@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="flex items-center mb-4">
               <Image
                 src="/jd.webp"
-                alt="Jacob Detaling"
+                alt="Jacob Detailing"
                 width={48}
                 height={48}
                 className="object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-full"

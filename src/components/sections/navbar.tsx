@@ -115,7 +115,7 @@ export default function Navbar() {
               <div className="flex items-center">
                 <Image
                   src="/jd.webp"
-                  alt="Jacob Detaling"
+                  alt="Jacob Detailing"
                   width={48}
                   height={48}
                   className={cn(
@@ -126,7 +126,7 @@ export default function Navbar() {
                 <span
                   className={cn("font-bold text-lg", !scrolled && "text-white")}
                 >
-                  Jacob Detaling
+                  Jacob Detailing
                 </span>
               </div>
             </div>

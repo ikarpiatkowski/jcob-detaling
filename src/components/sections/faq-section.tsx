@@ -47,7 +47,7 @@ const faqData = [
   {
     question: "7. Dlaczego warto skorzystać z profesjonalnego autodetailingu?",
     answer: [
-      "Detailing to coś więcej niż zwykłe mycie. To proces, który odnawia, zabezpiecza i pielęgnuje każdy element auta – zarówno lakier, jak i wnętrze. Dzięki detailingowi samochód wygląda jak nowy, jest lepiej chroniony przed czynnikami zewnętrznymi, łatwiej utrzymać go w czystości, a przy odsprzedaży zyskuje na wartości.",
+      "detailing to coś więcej niż zwykłe mycie. To proces, który odnawia, zabezpiecza i pielęgnuje każdy element auta – zarówno lakier, jak i wnętrze. Dzięki detailingowi samochód wygląda jak nowy, jest lepiej chroniony przed czynnikami zewnętrznymi, łatwiej utrzymać go w czystości, a przy odsprzedaży zyskuje na wartości.",
     ],
   },
 ];

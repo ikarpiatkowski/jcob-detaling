@@ -1,6 +1,6 @@
 ##
 
-Jacob Detaling - Landing Page
+Jacob Detailing - Landing Page
 
 ## TODO
 
