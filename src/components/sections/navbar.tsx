@@ -58,8 +58,16 @@ export default function Navbar() {
   // const { theme } = useTheme();
 
   useEffect(() => {
+    // Set initial scrolled state on mount
+    if (typeof window !== "undefined") {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
+
     const handleScroll = () => {
-      // Check if page is scrolled
       if (window.scrollY > 50) {
         setScrolled(true);
       } else {
@@ -68,7 +76,6 @@ export default function Navbar() {
 
       // Determine active section
       const sections = navItems.map((item) => item.href.substring(1));
-
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {

@@ -24,6 +24,15 @@ const defaultImages: ImageType[] = [
   "/w3.webp",
   "/w4.webp",
   "/w5.webp",
+  "/n1.jpeg",
+  "/n2.jpeg",
+  "/n3.jpg",
+  "/n4.jpeg",
+  "/n5.jpeg",
+  "/n6.jpeg",
+  "/n7.jpeg",
+  "/n8.jpeg",
+  "/n9.jpeg",
 ];
 
 interface ProductShowcaseProps {
@@ -35,12 +44,21 @@ export default function ProductShowcase({
 }: ProductShowcaseProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+
+  // Reset timer on manual navigation
+  const resetTimer = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setIsPaused(false); // na wypadek kliknięcia po hoverze
+  };
 
   const handleNext = () => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    resetTimer();
   };
 
   const handlePrev = () => {
@@ -48,11 +66,13 @@ export default function ProductShowcase({
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
+    resetTimer();
   };
 
   const handleDotClick = (index: number) => {
     setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
+    resetTimer();
   };
 
   // Swipe support (mobile + desktop)
@@ -94,14 +114,17 @@ export default function ProductShowcase({
     touchStartX.current = null;
   };
 
-  // Auto-advance carousel
+  // Auto-advance carousel (pause on hover/focus, reset on manual nav)
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (isPaused) return;
+    timerRef.current = setTimeout(() => {
       setDirection(1);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [currentIndex, isPaused, images.length]);
 
   const variants = {
     enter: (direction: number) => ({
@@ -127,6 +150,10 @@ export default function ProductShowcase({
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStartCapture={() => setIsPaused(true)}
+        onTouchEndCapture={() => setIsPaused(false)}
       >
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -140,58 +167,54 @@ export default function ProductShowcase({
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            className="absolute inset-0"
+            className="absolute inset-0 overflow-hidden rounded-xl flex items-center justify-center"
           >
-            <div className="relative h-full w-full">
-              <Image
-                src={images[currentIndex] || "/placeholder.svg"}
-                alt={
-                  typeof images[currentIndex] === "string"
-                    ? images[currentIndex]
-                    : `product ${currentIndex + 1}`
-                }
-                fill
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={images[currentIndex] || "/placeholder.svg"}
+              alt={
+                typeof images[currentIndex] === "string"
+                  ? images[currentIndex]
+                  : `product ${currentIndex + 1}`
+              }
+              fill
+              className="object-contain"
+            />
           </motion.div>
         </AnimatePresence>
       </div>
-
-      {/* Navigation Buttons */}
-      <Button
-        variant="outline"
-        size="icon"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/40 hover:bg-white/60 dark:bg-neutral-800/60 dark:hover:bg-neutral-800/80  border-none rounded-full h-8 w-8 z-10"
-        onClick={handlePrev}
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </Button>
-
-      <Button
-        variant="outline"
-        size="icon"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/40 hover:bg-white/60 dark:bg-neutral-800/60 dark:hover:bg-neutral-800/80 border-none rounded-full h-8 w-8 z-10"
-        onClick={handleNext}
-      >
-        <ChevronRight className="h-6 w-6" />
-      </Button>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center mt-6 space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleDotClick(index)}
-            className={cn(
-              "h-2 w-2 rounded-full transition-all duration-300",
-              index === currentIndex
-                ? "bg-primary w-6"
-                : "bg-neutral-300 dark:bg-neutral-600 hover:bg-neutral-400 dark:hover:bg-neutral-2000"
-            )}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      {/* Dots Indicator + Navigation Buttons at the bottom */}
+      <div className="flex items-center justify-center mt-6 gap-4">
+        <Button
+          variant="outline"
+          size="icon"
+          className="bg-white/40 hover:bg-white/60 dark:bg-neutral-800/60 dark:hover:bg-neutral-800/80 border-none rounded-full h-8 w-8 z-10"
+          onClick={handlePrev}
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+        <div className="flex justify-center space-x-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleDotClick(index)}
+              className={cn(
+                "h-2 w-2 rounded-full transition-all duration-300",
+                index === currentIndex
+                  ? "bg-primary w-6"
+                  : "bg-neutral-300 dark:bg-neutral-600 hover:bg-neutral-400 dark:hover:bg-neutral-2000"
+              )}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+        <Button
+          variant="outline"
+          size="icon"
+          className="bg-white/40 hover:bg-white/60 dark:bg-neutral-800/60 dark:hover:bg-neutral-800/80 border-none rounded-full h-8 w-8 z-10"
+          onClick={handleNext}
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
       </div>
     </div>
   );

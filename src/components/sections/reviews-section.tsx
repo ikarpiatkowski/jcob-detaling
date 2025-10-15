@@ -105,12 +105,20 @@ export default function ReviewsSection() {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
+  // Reset timer (for hover/touch on current review)
+  const resetTimer = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    // Do NOT set isPaused here, just clear timer so it restarts after hover ends
+  };
+
   const prevReview = () => {
     setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+    resetTimer();
   };
 
   const nextReview = () => {
     setCurrentIndex((prev) => (prev + 1) % reviews.length);
+    resetTimer();
   };
 
   // Auto-advance with pause on hover/touch
@@ -179,17 +187,7 @@ export default function ReviewsSection() {
         </div>
         <div
           className="relative flex items-center justify-center h-[320px] select-none"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={(e) => {
-            setIsPaused(true);
-            handleTouchStart(e);
-          }}
           onTouchMove={handleTouchMove}
-          onTouchEnd={() => {
-            setIsPaused(false);
-            handleTouchEnd();
-          }}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         >
@@ -201,6 +199,21 @@ export default function ReviewsSection() {
               const isCurrent = index === currentIndex;
 
               if (isPrev || isNext || isCurrent) {
+                // Add timer reset on hover/touch for current review
+                const reviewCardProps = isCurrent
+                  ? {
+                      onMouseEnter: (e: React.MouseEvent) => {
+                        setIsPaused(true);
+                        resetTimer();
+                      },
+                      onMouseLeave: () => setIsPaused(false),
+                      onTouchStart: (e: React.TouchEvent) => {
+                        setIsPaused(true);
+                        resetTimer();
+                      },
+                      onTouchEnd: () => setIsPaused(false),
+                    }
+                  : {};
                 return (
                   <motion.div
                     key={index}
@@ -218,7 +231,9 @@ export default function ReviewsSection() {
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   >
-                    <ReviewCard {...review} />
+                    <div {...reviewCardProps}>
+                      <ReviewCard {...review} />
+                    </div>
                   </motion.div>
                 );
               }
