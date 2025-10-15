@@ -133,26 +133,9 @@ export default function ReviewsSection() {
   }, [currentIndex, isPaused]);
 
   // Swipe support (desktop + mobile)
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+  // Touch/mouse swipe support (desktop + mobile)
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
-  };
-  const handleTouchEnd = () => {
-    if (
-      touchStartX.current !== null &&
-      touchEndX.current !== null &&
-      Math.abs(touchStartX.current - touchEndX.current) > 40
-    ) {
-      if (touchStartX.current > touchEndX.current) {
-        nextReview();
-      } else {
-        prevReview();
-      }
-    }
-    touchStartX.current = null;
-    touchEndX.current = null;
   };
   const handleMouseDown = (e: React.MouseEvent) => {
     touchStartX.current = e.clientX;
@@ -202,12 +185,12 @@ export default function ReviewsSection() {
                 // Add timer reset on hover/touch for current review
                 const reviewCardProps = isCurrent
                   ? {
-                      onMouseEnter: (e: React.MouseEvent) => {
+                      onMouseEnter: () => {
                         setIsPaused(true);
                         resetTimer();
                       },
                       onMouseLeave: () => setIsPaused(false),
-                      onTouchStart: (e: React.TouchEvent) => {
+                      onTouchStart: () => {
                         setIsPaused(true);
                         resetTimer();
                       },
