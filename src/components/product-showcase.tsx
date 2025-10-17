@@ -14,24 +14,21 @@ type ImageType = string | StaticImageData;
 
 // Domyślnie importuj webp, ale docelowo przekazuj jako props
 const defaultImages: ImageType[] = [
-  "/z1.webp",
-  "/z2.webp",
-  "/z3.webp",
   "/hero1.webp",
-  "/hero2.webp",
   "/w1.webp",
+  "/z1.webp",
+  "/hero2.webp",
   "/w2.webp",
   "/w3.webp",
-  "/w4.webp",
   "/w5.webp",
   "/n1.webp",
   "/n2.webp",
-  "/n3.webp",
   "/n4.webp",
   "/n5.webp",
   "/n6.webp",
   "/n7.webp",
   "/n8.webp",
+  "/z2.webp",
   "/n9.webp",
 ];
 

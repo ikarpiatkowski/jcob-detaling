@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jacob Detailing",
   description:
-    "Auto detailing Toruń – kompleksowe mycie, korekta i ochrona lakieru, powłoki ceramiczne, czyszczenie wnętrz, pranie tapicerki. Profesjonalna pielęgnacja samochodów osobowych i premium. Gwarancja jakości i dbałości o każdy detal.",
+    "Auto detailing Toruń - korekta lakieru, myjna samochodowa, powłoki ceramiczne, czyszczenie auta, renowacja lamp.",
   icons: {
     icon: "/jd.png",
     apple: "/apple-icon.png",
