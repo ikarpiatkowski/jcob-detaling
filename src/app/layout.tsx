@@ -14,12 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jacob Detailing",
+  metadataBase: new URL("https://jacobdetailing.pl"),
+  title: "Auto detailing Toruń | Car detailing | Jacob Detailing",
   description:
-    "Auto detailing Toruń - korekta lakieru, myjna samochodowa, powłoki ceramiczne, czyszczenie auta, renowacja lamp.",
+    "Auto Car detailing Toruń. Korekta lakieru, powłoka ceramiczna, myjnia samochodowa, czyszczenie samochodu, renowacja lakieru, detailing wnętrza / zewnętrzny. Sprawdź Cennik lub Zadzwoń!",
   icons: {
     icon: "/jd.png",
     apple: "/apple-icon.png",
+  },
+  alternates: {
+    canonical: "https://jacobdetailing.pl",
   },
 };
 
@@ -29,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pl" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
