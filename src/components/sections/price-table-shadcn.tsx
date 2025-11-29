@@ -7,21 +7,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Bubbles,
-  Car,
-  Target,
-  Sparkles,
-  Wrench,
-  BrushCleaning,
-  Check,
-  Medal,
-  Gem,
-} from "lucide-react";
+import { Target, Sparkles, Wrench, Check, Medal, Gem } from "lucide-react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
