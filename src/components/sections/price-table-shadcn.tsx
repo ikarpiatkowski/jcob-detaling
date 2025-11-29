@@ -55,7 +55,7 @@ const sections = [
     priceOld: "3500 zł",
     price: "3000 zł",
     description:
-      "Jednoetapowa korekta lakieru, Zabezpieczenie lakieru lamp oraz felg, Powłoka ceramiczna na szyby (2 letnia), Detailing wnętrza, Zabezpieczenie opon żelem grafenowym",
+      "Jednoetapowa korekta lakieru, Zabezpieczenie lakieru lamp oraz felg powłoką ceramiczno-grafenową (5 letnią), Powłoka ceramiczna na szyby (2 letnia), Detailing wnętrza, Zabezpieczenie opon żelem grafenowym",
   },
 ];
 
