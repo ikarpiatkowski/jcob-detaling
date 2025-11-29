@@ -22,7 +22,9 @@ export default function Footer() {
             </p>
           </div>
           <div className="text-right">
-            <h4 className="text-lg font-semibold my-2 mb-4">Śledź nas na</h4>
+            <h4 className="text-lg font-semibold my-2 mb-4">
+              Znajdziesz nas na
+            </h4>
             <div className="flex space-x-4 items-center justify-end">
               {/* Facebook Icon */}
               <Link
@@ -105,26 +107,18 @@ export default function Footer() {
 
         <div className="border-t dark:border-neutral-600 border-neutral-400 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="dark:text-neutral-400 text-neutral-600">
-            © {new Date().getFullYear()} Jacob Detailing. Wszelkie prawa
-            zastrzeżone.
+            © {new Date().getFullYear()} Jacob Detailing.
           </p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
               <li>
-                <Link
-                  href="#"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white text-sm transition-colors"
-                >
-                  Polityka prywatności
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="dark:text-neutral-400 text-neutral-600 hover:text-white text-sm transition-colors"
-                >
-                  Warunki świadczenia usług
-                </Link>
+                <span className="dark:text-neutral-400 text-neutral-600 hover:text-white text-sm transition-colors">
+                  Powered by{" "}
+                  <a href="https://github.com/ikarpiatkowski" target="_blank">
+                    Ikar
+                  </a>
+                  .
+                </span>
               </li>
             </ul>
           </div>

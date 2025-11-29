@@ -30,7 +30,7 @@ export default function AnimatedText({
   // Rozdziel tekst na słowa i znajdź indeksy do podświetlenia
   const words = text.split(" ");
   // Zbuduj fragmenty: [gradientowane dwa słowa, reszta]
-  const highlightCount = 2;
+  const highlightCount = 9;
   const highlightWords = words.slice(0, highlightCount).join(" ");
   const restWords = words.slice(highlightCount);
 

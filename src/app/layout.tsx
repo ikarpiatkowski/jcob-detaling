@@ -14,16 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jacobdetailing.pl"),
-  title: "Auto detailing Toruń | Car detailing | Jacob Detailing",
+  metadataBase: new URL("https://www.jacobdetailing.pl"),
+  title: "Auto Detailing Toruń | Car Detailing | Jacob Detailing",
   description:
-    "Auto Car detailing Toruń. Korekta lakieru, powłoka ceramiczna, myjnia samochodowa, czyszczenie samochodu, renowacja lakieru, detailing wnętrza / zewnętrzny. Sprawdź Cennik lub Zadzwoń!",
+    "Auto Car Detailing Toruń. Korekta lakieru, powłoka ceramiczna, myjnia samochodowa, czyszczenie samochodu, renowacja lakieru, detailing wnętrza / zewnętrzny. Sprawdź Cennik lub Zadzwoń!",
   icons: {
     icon: "/jd.png",
     apple: "/apple-icon.png",
   },
   alternates: {
-    canonical: "https://jacobdetailing.pl",
+    canonical: "https://www.jacobdetailing.pl",
   },
 };
 

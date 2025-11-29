@@ -32,11 +32,11 @@ export default function HeroSection() {
     >
       <AnimatedHeroImage images={heroImages} alt="Elegant lacquered front" />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl">
+        <div className="max-w-6xl">
           <AnimatedText
-            text="Jacob Detailing – Auto detailing Toruń"
+            text="Auto Detailing Toruń | Car Detailing | Jacob Detailing"
             className="text-4xl md:text-6xl font-bold mb-4"
-            highlightClassName="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-purple-600 underline decoration-dashed"
+            highlightClassName="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-purple-600"
           />
           <p className="text-xl text-white/90 mb-8 max-w-3xl">
             Dbamy o Twoje auto z dbałością o najmniejszy detal. Lśniący lakier,
