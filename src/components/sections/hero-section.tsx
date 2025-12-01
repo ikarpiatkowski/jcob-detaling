@@ -28,7 +28,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative h-[90vh] pt-16 flex items-center overflow-hidden"
+      className="relative h-[100vh] pt-16 flex items-center overflow-hidden"
     >
       <AnimatedHeroImage images={heroImages} alt="Elegant lacquered front" />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">

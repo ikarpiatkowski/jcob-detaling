@@ -7,7 +7,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Target, Sparkles, Wrench, Check, Medal, Gem } from "lucide-react";
+import {
+  Target,
+  Sparkles,
+  Wrench,
+  Check,
+  Medal,
+  Gem,
+  Bubbles,
+  Car,
+  BrushCleaning,
+} from "lucide-react";
 import {
   Card,
   CardContent,
@@ -29,7 +39,7 @@ const sections = [
     price: "1200 zł",
     priceOld: "1500 zł",
     description:
-      "Jednoetapowa korekta lakieru, Zabezpieczenie całego auta twardym woskiem (12 miesięcy), Niewidzialna wycieraczka (6-miesięczna), Detailing wnętrza",
+      "Jednoetapowa korekta lakieru, Zabezpieczenie całego lakieru twardym woskiem (12 miesięcy), Niewidzialna wycieraczka (6-miesięczna), Detailing wnętrza, Zabezpieczenie plastików dressingiem",
   },
   {
     id: "detailing-zewnetrzny",
@@ -43,7 +53,7 @@ const sections = [
     priceOld: "2000 zł",
     isPopular: true, // Opcja wyróżnienia
     description:
-      "Jednoetapowa korekta lakieru, Zabezpieczenie lakieru powłoką ceramiczną, Niewidzialna wycieraczka (6 miesięczna), Detailing wnętrza",
+      "Jednoetapowa korekta lakieru, Zabezpieczenie lakieru powłoką ceramiczno-grafenową (3 letnią), Niewidzialna wycieraczka (6 miesięczna), Detailing wnętrza, Zabezpieczenie plastików dressingiem",
   },
   {
     id: "korekta-lakieru",
@@ -55,39 +65,78 @@ const sections = [
     priceOld: "3500 zł",
     price: "3000 zł",
     description:
-      "Jednoetapowa korekta lakieru, Zabezpieczenie lakieru lamp oraz felg powłoką ceramiczno-grafenową (5 letnią), Powłoka ceramiczna na szyby (2 letnia), Detailing wnętrza, Zabezpieczenie opon żelem grafenowym",
+      "Dwuetapowa korekta lakieru, Zabezpieczenie lakieru lamp oraz felg powłoką ceramiczno-grafenową (5 letnią), Powłoka ceramiczna na szyby (2 letnia), Detailing wnętrza, Zabezpieczenie opon żelem grafenowym, Zabezpieczenie plastików dressingiem",
   },
 ];
 
-// Sekcje tabelaryczne (pozostałe)
 const tableSections = [
   {
     id: "pakiety-kompleksowe",
     icon: <Target />,
     colorClass: "text-amber-500",
     title: "Pakiety kompleksowe",
-    titleGradient: "from-amber-600 to-amber-400",
-    headers: ["Usługa", "Cena"],
+    titleGradient: "from-amber-600 to-orange-400",
+    headers: ["Usługa", "Małe / Średnie", "Duże"],
     rows: [
       [
-        "Full detailing (detailing wnętrza, mycie zewnętrzne, zabezpieczenie lakieru, zabezpiecznie opon żelem grafenowym)",
-        "250 - 400 zł",
+        "Full Detailing (detailing wnętrza + zewnątrz + zabezpieczenie lakieru + zabezpiecznie opon żelem grafenowym)",
+        "250 zł",
+        "400 zł",
       ],
+    ],
+  },
+  {
+    id: "detailing-wnetrza",
+    icon: <Bubbles />,
+    colorClass: "text-cyan-500",
+    title: "Detailing wnętrza",
+    titleGradient: "from-cyan-600 to-cyan-400",
+    headers: ["Usługa", "Małe / Średnie", "Duże"],
+    rows: [
+      ["Kompletne czyszczenie wnętrza", "150 zł", "200 zł"],
+      ["Pranie tapicerki materiałowej (za fotel)", "80 zł", "100 zł"],
+      ["Czyszczenie i impregnacja skóry (za fotel)", "80 zł", "100 zł"],
+    ],
+  },
+  {
+    id: "detailing-zewnetrzny",
+    icon: <Car />,
+    colorClass: "text-blue-500",
+    title: "Detailing zewnętrzny",
+    titleGradient: "from-blue-600 to-blue-400",
+    headers: ["Usługa", "Małe / Średnie", "Duże"],
+    rows: [
+      ["Kompletne mycie zewnętrzne", "125 zł", "175 zł"],
+      ["Woskowanie twardym woskiem", "250 zł", "400 zł"],
+      ["Konserwacja powłoki ceramicznej (raz w roku)", "300 zł", "400 zł"],
     ],
   },
   {
     id: "powloki-ceramiczne",
     icon: <Sparkles />,
     colorClass: "text-green-500",
-    title: "Powłoki ceramiczne (felgi / szyby)",
+    title: "Powłoki ceramiczne",
     titleGradient: "from-teal-600 to-teal-400",
     headers: ["Usługa", "Małe / Średnie", "Duże"],
     rows: [
       ["Powłoka ceramiczna na felgi (1 rok)", "180 zł", "220 zł"],
       ["Powłoka ceramiczna na felgi (2 lata)", "250 zł", "300 zł"],
       ["Powłoka ceramiczna na szyby (1 rok)", "200 zł", "250 zł"],
-      ["Powłoka ceramiczna na szyby (2 lata)", "250 zł", "300 zł"],
-      ["Powłoka ceramiczna na szyby (3 lata)", "300 zł", "400 zł"],
+      ["Powłoka ceramiczna na szyby (2 letnia)", "250 zł", "300 zł"],
+      ["Powłoka ceramiczna na szyby (3 letnia)", "300 zł", "400 zł"],
+    ],
+  },
+  {
+    id: "korekta-lakieru",
+    icon: <BrushCleaning />,
+    colorClass: "text-fuchsia-500",
+    title: "Korekty lakieru",
+    titleGradient: "from-fuchsia-600 to-pink-400",
+    headers: ["Usługa", "Małe / Średnie", "Duże"],
+    rows: [
+      ["1-etapowa korekta lakieru", "650 zł", "850 zł"],
+      ["2-etapowa korekta lakieru", "1000 zł", "1200 zł"],
+      ["3-etapowa korekta lakieru", "1400 zł", "1700 zł"],
     ],
   },
 ];
@@ -98,7 +147,7 @@ const PRICE_COL_WIDTH = "w-24 md:w-[120px]";
 export default function PriceTableModern() {
   return (
     <section id="pricetable" className="mx-auto py-16 px-4 max-w-7xl">
-      <div className="text-center mb-12">
+      <div className="text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Cennik usług</h1>
         <p className="text-muted-foreground text-lg">
           Wybierz pakiet idealnie dopasowany do Twojego samochodu
@@ -110,7 +159,7 @@ export default function PriceTableModern() {
         {sections.map((pkg) => (
           <Card
             key={pkg.id}
-            className={`flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 
+            className={`flex flex-col mx-24 my-4 md:mx-0 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 
               ${pkg.borderColor} border-2 
               bg-gradient-to-br ${pkg.bgGradient}
               ${
@@ -176,7 +225,7 @@ export default function PriceTableModern() {
                   }
                 `}
               >
-                Wybierz {pkg.title}
+                <a href="tel:+48515125692">Zadzwoń teraz!</a>
               </Button>
             </CardFooter>
           </Card>
@@ -191,36 +240,41 @@ export default function PriceTableModern() {
 
         {tableSections.map((section) => (
           <div key={section.title} id={section.id} className="overflow-x-auto">
-            <Table className="w-full table-fixed border rounded-lg overflow-hidden">
+            <Table className="rounded-lg overflow-hidden w-full table-fixed">
               <TableHeader>
                 <TableRow>
                   {section.headers.map((header, j) => (
                     <TableHead
                       key={header}
                       className={`
-                        h-14 bg-neutral-100 dark:bg-neutral-800/50
-                        ${
-                          j === 0
-                            ? "w-auto text-left pl-4"
-                            : `text-center ${PRICE_COL_WIDTH}`
-                        }
-                      `}
+                          border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800
+                          ${
+                            j === 0
+                              ? `${section.colorClass} font-semibold text-left align-top`
+                              : `text-center ${PRICE_COL_WIDTH}`
+                          }
+                        `}
                     >
                       {j === 0 ? (
-                        <div className="flex items-center gap-3">
-                          {React.cloneElement(section.icon, {
-                            className: `w-6 h-6 ${section.colorClass}`,
-                          })}
+                        <div className="flex items-center gap-2 whitespace-normal min-h-[2.5rem]">
+                          <span className="block md:hidden">
+                            {React.cloneElement(section.icon, {
+                              className: `text-xl ${section.colorClass}`,
+                            })}
+                          </span>
+                          <span className="hidden md:block">
+                            {React.cloneElement(section.icon, {
+                              className: `text-xl ${section.colorClass}`,
+                            })}
+                          </span>
                           <span
-                            className={`font-bold bg-gradient-to-r bg-clip-text text-transparent ${section.titleGradient}`}
+                            className={`bg-gradient-to-r bg-clip-text text-transparent ${section.titleGradient}`}
                           >
                             {section.title}
                           </span>
                         </div>
                       ) : (
-                        <span className="font-semibold text-foreground">
-                          {header}
-                        </span>
+                        <div className="text-center font-bold">{header}</div>
                       )}
                     </TableHead>
                   ))}
@@ -230,19 +284,20 @@ export default function PriceTableModern() {
                 {section.rows.map((row, i) => (
                   <TableRow
                     key={i}
-                    className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
+                    className="hover:bg-primary/10 dark:hover:bg-primary/20 border-b bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700"
                   >
                     {row.map((cell, j) => (
                       <TableCell
                         key={j}
                         className={`
-                          py-4 border-t border-neutral-100 dark:border-neutral-800
-                          ${
-                            j === 0
-                              ? "text-left pl-4 leading-relaxed"
-                              : `text-center font-medium ${PRICE_COL_WIDTH}`
-                          }
-                        `}
+                            border-r border-neutral-200 dark:border-neutral-700 last:border-r-0
+                            bg-neutral-50 dark:bg-neutral-900
+                            ${
+                              j === 0
+                                ? "whitespace-normal text-left"
+                                : `whitespace-nowrap text-center ${PRICE_COL_WIDTH}`
+                            }
+                          `}
                       >
                         {cell}
                       </TableCell>
@@ -256,42 +311,41 @@ export default function PriceTableModern() {
 
         {/* Usługi dodatkowe */}
         <div className="overflow-x-auto" id="uslugi-dodatkowe">
-          <Table className="w-full border rounded-lg overflow-hidden">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="h-14 bg-neutral-100 dark:bg-neutral-800/50 pl-4 w-auto text-left">
-                  <div className="flex items-center gap-3 font-semibold">
-                    <Wrench className="w-5 h-5 text-rose-500" />
-                    <span className="bg-gradient-to-r bg-clip-text text-transparent from-rose-600 to-red-400">
-                      Usługi dodatkowe
-                    </span>
-                  </div>
-                </TableHead>
-                <TableHead
-                  className={`h-14 bg-neutral-100 dark:bg-neutral-800/50 text-center font-semibold text-foreground ${PRICE_COL_WIDTH}`}
-                >
-                  Cena
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {extraServices.map((row, i) => (
-                <TableRow
-                  key={i}
-                  className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-                >
-                  <TableCell className="py-4 pl-4 border-t border-neutral-100 dark:border-neutral-800 font-medium">
-                    {row[0]}
-                  </TableCell>
-                  <TableCell
-                    className={`py-4 border-t border-neutral-100 dark:border-neutral-800 text-center font-bold ${PRICE_COL_WIDTH}`}
-                  >
-                    {row[1]}
-                  </TableCell>
+          <div>
+            <Table className="rounded-lg overflow-hidden w-full">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800">
+                    <div className="flex items-center gap-2 font-semibold whitespace-normal">
+                      <Wrench className="text-rose-500" />
+                      <span className="bg-gradient-to-r bg-clip-text text-transparent from-rose-600 to-red-400">
+                        Usługi dodatkowe
+                      </span>
+                    </div>
+                  </TableHead>
+                  <TableHead className="border-b border-neutral-200 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800 text-center whitespace-nowrap">
+                    {/* ZMIANA: Użycie stałej szerokości i no-wrap */}
+                    Cena
+                  </TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {extraServices.map((row, i) => (
+                  <TableRow
+                    key={i}
+                    className="hover:bg-primary/10 dark:hover:bg-primary/20 border-b bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700"
+                  >
+                    <TableCell className="border-r border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 whitespace-normal">
+                      {row[0]}
+                    </TableCell>
+                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-center whitespace-nowrap w-16 md:w-[90px]">
+                      {row[1]}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </div>
     </section>

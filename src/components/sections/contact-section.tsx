@@ -26,7 +26,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-10 bg-stripes">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Napisz do nas</h2>
           <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
             Masz pytania lub chcesz złożyć zamówienie? Skontaktuj się z naszym

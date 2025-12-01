@@ -25,7 +25,7 @@ export default function ProducersSection() {
   const setWidth = producerImages.length * itemWidth;
 
   return (
-    <section className="py-16 bg-stripes">
+    <section className="py-10 bg-stripes">
       <div className="container mx-auto overflow-hidden">
         <motion.div
           className="flex gap-12"
