@@ -120,10 +120,15 @@ const tableSections = [
     headers: ["Usługa", "Małe / Średnie", "Duże"],
     rows: [
       ["Powłoka ceramiczna na felgi (1 rok)", "180 zł", "220 zł"],
-      ["Powłoka ceramiczna na felgi (2 lata)", "250 zł", "300 zł"],
+      ["Powłoka ceramiczna na felgi (2 letnia)", "250 zł", "300 zł"],
       ["Powłoka ceramiczna na szyby (1 rok)", "200 zł", "250 zł"],
       ["Powłoka ceramiczna na szyby (2 letnia)", "250 zł", "300 zł"],
       ["Powłoka ceramiczna na szyby (3 letnia)", "300 zł", "400 zł"],
+      ["Powłoka ceramiczna (1 rok)", "450 zł", "600 zł"],
+      ["Powłoka ceramiczna (2 letnia)", "900 zł", "1200 zł"],
+      ["Powłoka ceramiczna (3 letnia)", "1200 zł", "1400 zł"],
+      ["Powłoka ceramiczna (4 letnia)", "1650 zł", "1900 zł"],
+      ["Powłoka ceramiczna (5 letnia)", "2100 zł", "2400 zł"],
     ],
   },
   {
@@ -134,9 +139,9 @@ const tableSections = [
     titleGradient: "from-fuchsia-600 to-pink-400",
     headers: ["Usługa", "Małe / Średnie", "Duże"],
     rows: [
-      ["1-etapowa korekta lakieru", "650 zł", "850 zł"],
-      ["2-etapowa korekta lakieru", "1000 zł", "1200 zł"],
-      ["3-etapowa korekta lakieru", "1400 zł", "1700 zł"],
+      ["Jednoetapowa korekta lakieru", "650 zł", "850 zł"],
+      ["Dwuetapowa korekta lakieru", "1000 zł", "1200 zł"],
+      ["Trójetapowa korekta lakieru", "1400 zł", "1700 zł"],
     ],
   },
 ];
@@ -338,7 +343,7 @@ export default function PriceTableModern() {
                     <TableCell className="border-r border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 whitespace-normal">
                       {row[0]}
                     </TableCell>
-                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-center whitespace-nowrap w-16 md:w-[90px]">
+                    <TableCell className="border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-center whitespace-nowrap w-24 md:w-[120px]">
                       {row[1]}
                     </TableCell>
                   </TableRow>
