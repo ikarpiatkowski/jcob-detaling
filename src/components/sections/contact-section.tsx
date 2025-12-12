@@ -50,9 +50,6 @@ export default function ContactSection() {
                   <p className="text-neutral-600 dark:text-neutral-300">
                     <a href="tel:+48515125692">+48 515 125 692</a>
                   </p>
-                  <p className="text-neutral-600 dark:text-neutral-300">
-                    <a href="tel:+48513797298">+48 513 797 298</a>
-                  </p>
                 </div>
               </div>
 
