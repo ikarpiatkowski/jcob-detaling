@@ -98,7 +98,7 @@ const PRICE_COL_WIDTH = "w-24 md:w-[120px]";
 
 export default function OtherServicesSection() {
   return (
-    <section className="mx-auto py-8">
+    <section className="mx-auto py-10">
       <div className="space-y-8 container mx-auto">
         <h2 className="text-5xl font-bold text-center mb-8 pb-4">
           Cennik
