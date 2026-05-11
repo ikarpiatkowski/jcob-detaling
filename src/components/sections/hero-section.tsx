@@ -1,6 +1,5 @@
 "use client";
-import { ArrowDown, ArrowRight, ChevronRight, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
 import AnimatedText from "@/components/animated-text";
 import AnimatedHeroImage from "@/components/animated-hero-image";
 import { motion } from "motion/react";
