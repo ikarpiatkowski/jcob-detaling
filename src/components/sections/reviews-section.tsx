@@ -157,16 +157,13 @@ export default function ReviewsSection() {
   return (
     <section
       id="reviews"
-      className="py-10 bg-stripes-light relative overflow-hidden"
+      className="py-10 bg-stripes-light relative overflow-hidden bg-stripes"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-5xl font-bold mb-4">
             Opinie klientów ✨
           </h2>
-          <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-            Sprawdź, co mówią o nas nasi klienci!
-          </p>
         </div>
         <div
           className="relative flex items-center justify-center h-[320px] select-none"
@@ -185,17 +182,17 @@ export default function ReviewsSection() {
                 // Add timer reset on hover/touch for current review
                 const reviewCardProps = isCurrent
                   ? {
-                      onMouseEnter: () => {
-                        setIsPaused(true);
-                        resetTimer();
-                      },
-                      onMouseLeave: () => setIsPaused(false),
-                      onTouchStart: () => {
-                        setIsPaused(true);
-                        resetTimer();
-                      },
-                      onTouchEnd: () => setIsPaused(false),
-                    }
+                    onMouseEnter: () => {
+                      setIsPaused(true);
+                      resetTimer();
+                    },
+                    onMouseLeave: () => setIsPaused(false),
+                    onTouchStart: () => {
+                      setIsPaused(true);
+                      resetTimer();
+                    },
+                    onTouchEnd: () => setIsPaused(false),
+                  }
                   : {};
                 return (
                   <motion.div
@@ -258,11 +255,10 @@ function ReviewCard({
         {[...Array(5)].map((_, i) => (
           <span
             key={i}
-            className={`text-xl ${
-              i < stars
-                ? "text-yellow-400"
-                : "text-neutral-300 dark:text-neutral-700"
-            }`}
+            className={`text-xl ${i < stars
+              ? "text-yellow-400"
+              : "text-neutral-300 dark:text-neutral-700"
+              }`}
           >
             ★
           </span>

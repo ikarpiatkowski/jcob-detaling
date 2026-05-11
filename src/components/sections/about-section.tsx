@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function AboutSection() {
   return (
     <section id="about" className="bg-stripes">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto py-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-5xl font-bold mb-6">
               O naszej firmie
             </h2>
             <p className="text-neutral-600 dark:text-neutral-300 mb-4">
@@ -26,15 +26,15 @@ export default function AboutSection() {
               auto nie tylko wyglądało pięknie, ale było także trwale chronione.
             </p>
             <Button size="lg" asChild>
-              <Link href="#contact">Dowiedz się o nas więcej</Link>
+              <Link href="#contact">Dowiedz się więcej</Link>
             </Button>
           </div>
-          <div className="relative w-full aspect-square rounded-lg overflow-hidden">
+          <div className="relative w-fit aspect-square rounded-lg overflow-hidden mx-auto h-5/6">
             <Image
               src="/jd.webp"
               alt="Our workshop"
               fill
-              className="object-cover dark:bg-inherit bg-neutral-200/80 rounded-full"
+              className="object-cover dark:bg-inherit bg-neutral-200/80 rounded-lg"
             />
           </div>
         </div>

@@ -54,10 +54,10 @@ const faqData = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-10 bg-stripes-light">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-10 bg-stripes">
+      <div className="container mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-5xl font-bold mb-4">
             Najczęściej zadawane pytania
           </h2>
           <p className="text-neutral-600 dark:text-neutral-300 mx-auto">
@@ -65,7 +65,7 @@ export default function FAQSection() {
             klientów!
           </p>
         </div>
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           <Accordion
             type="single"
             collapsible

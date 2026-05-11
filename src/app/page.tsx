@@ -9,6 +9,7 @@ import Footer from "@/components/sections/footer";
 import FAQSection from "@/components/sections/faq-section";
 import ReviewsSection from "@/components/sections/reviews-section";
 import PriceTableShadcn from "@/components/sections/price-table-shadcn";
+import OtherServicesSection from "@/components/sections/other-services-section";
 
 export default function Home() {
   return (
@@ -16,11 +17,12 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
-      <ProductSection />
       <ProducersSection />
       <PriceTableShadcn />
+      <ProductSection />
       <ReviewsSection />
-      <AboutSection />
+      <OtherServicesSection />
+      {/* <AboutSection /> */}
       <FAQSection />
       <ContactSection />
       <Footer />

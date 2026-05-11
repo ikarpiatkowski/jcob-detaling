@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <footer className="py-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="py-10 bg-stripes">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center mb-4">
@@ -12,13 +12,16 @@ export default function Footer() {
                 alt="Jacob Detailing"
                 width={48}
                 height={48}
-                className="object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-full"
+                className="object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-lg p-1"
               />
               <h3 className="text-xl font-bold">Jacob Detailing</h3>
             </div>
             <p className="dark:text-neutral-400 text-neutral-600">
               Profesjonalny auto detailing, ochrona lakieru, czyszczenie wnętrz
               i pielęgnacja samochodów.
+            </p>
+            <p className="dark:text-neutral-400 text-neutral-600">
+              © {new Date().getFullYear()} Jacob Detailing.
             </p>
           </div>
           <div className="text-right">
@@ -105,10 +108,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t dark:border-neutral-600 border-neutral-400 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="dark:text-neutral-400 text-neutral-600">
-            © {new Date().getFullYear()} Jacob Detailing.
-          </p>
+        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-center">
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
               <li>

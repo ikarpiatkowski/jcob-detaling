@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ChevronRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/animated-text";
 import AnimatedHeroImage from "@/components/animated-hero-image";
@@ -31,38 +31,35 @@ export default function HeroSection() {
       className="relative h-[100vh] pt-16 flex items-center overflow-hidden"
     >
       <AnimatedHeroImage images={heroImages} alt="Elegant lacquered front" />
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl">
-          <AnimatedText
-            text="Auto Detailing Toruń | Car Detailing | Jacob Detailing"
-            className="text-4xl md:text-6xl font-bold mb-4"
-            highlightClassName="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-purple-600"
-          />
-          <p className="text-xl text-white/90 mb-8 max-w-3xl">
-            Dbamy o Twoje auto z dbałością o najmniejszy detal. Lśniący lakier,
-            idealnie czyste wnętrze. Stawiamy na jakość, nie na pośpiech.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              size="lg"
-              onClick={(e) => {
-                e.preventDefault();
-                const section = document.querySelector("#pricetable");
-                if (section) section.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Sprawdź nasze usługi <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-white/10 text-white border-white/20 hover:bg-white/20"
-              asChild
-            >
-              <a href="tel:+48515125692">Zadzwoń</a>
-            </Button>
-          </div>
-        </div>
+      <div className="container relative z-10 mx-auto">
+        <AnimatedText
+          text={"Auto Detailing Toruń\n Jacob Detailing"}
+          className="text-4xl md:text-8xl font-bold mb-4 whitespace-pre-line text-white"
+          highlightClassName=""
+        />
+        <p className="text-xl text-white/90 mb-8 max-w-4xl">
+          Akredytowane studio auto detailingu w Toruniu firmy <strong>Titan Coatings</strong>.
+        </p>
+        {/* <div className="flex flex-col gap-2 mx-auto w-fit">
+          <Button
+            size="lg"
+            onClick={(e) => {
+              e.preventDefault();
+              const section = document.querySelector("#pricetable");
+              if (section) section.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Sprawdź nasze usługi <ArrowDown />
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="bg-white/10 text-white border-white/20 hover:bg-white/20"
+            asChild
+          >
+            <a href="tel:+48515125692">Zadzwoń <Phone /></a>
+          </Button>
+        </div> */}
       </div>
       <motion.a
         href="#features"

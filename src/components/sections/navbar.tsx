@@ -110,7 +110,7 @@ export default function Navbar() {
         scrolled ? "bg-background shadow-md py-2" : "bg-transparent py-4"
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -126,7 +126,7 @@ export default function Navbar() {
                   width={48}
                   height={48}
                   className={cn(
-                    "object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-full",
+                    "object-contain mr-2 dark:bg-inherit bg-neutral-200/80 rounded-lg p-1",
                     !scrolled && "bg-inherit"
                   )}
                 />
@@ -215,7 +215,7 @@ export default function Navbar() {
                     className={cn(
                       "py-2 text-sm font-medium transition-colors",
                       activeSection === item.href.substring(1) &&
-                        "text-primary font-semibold"
+                      "text-primary font-semibold"
                     )}
                   >
                     {item.label}
