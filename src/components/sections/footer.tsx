@@ -108,7 +108,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-center">
+        {/* <div className="mt-12 pt-8 flex flex-col md:flex-row justify-center">
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
               <li>
@@ -122,7 +122,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

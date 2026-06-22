@@ -143,6 +143,12 @@ export default function PriceTableModern() {
             </Card>
           ))}
         </div>
+
+        <div className="mt-12 text-center max-w-3xl mx-auto px-4">
+          <p className="text-neutral-600 dark:text-neutral-300 text-base md:text-lg leading-relaxed border-t border-neutral-200 dark:border-neutral-800 pt-8">
+            Oferujemy zabezpieczenia lakieru oraz całego auta folią PPF oraz powłokami elastomerowymi firmy <strong>Titan Coatings</strong>. W celu wyceny zapraszamy do kontaktu przez formularz na stronie albo na adres e-mail <a href="mailto:jacobdetailing02@gmail.com" className="text-primary hover:underline font-semibold">jacobdetailing02@gmail.com</a>.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -37,7 +37,7 @@ export default function HeroSection() {
           highlightClassName=""
         />
         <p className="text-xl text-white/90 mb-8 max-w-4xl">
-          Akredytowane studio auto detailingu w Toruniu firmy <strong>Titan Coatings</strong>.
+          Jesteśmy akredytowanym studiem autodetailingu w Toruniu firmy <strong>Titan Coatings</strong>.
         </p>
         {/* <div className="flex flex-col gap-2 mx-auto w-fit">
           <Button
